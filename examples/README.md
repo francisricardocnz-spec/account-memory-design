@@ -21,3 +21,7 @@
 [contract-check-results.json](contract-check-results.json)只记录公开工件的结构检查及边界，不是服务/数据库/真人验收。[cost-scenario.json](cost-scenario.json)使用归一化虚构单位，可运行tools/cost_sensitivity.py比较输入、输出、额外调用和缓存的敏感性。
 
 继续读[完整12轮故事](../docs/deep-dive/02-complete-story.md)，理解这些结构在产品中何时可提交、何时必须保持未知。
+
+## v0.3匿名整理检查记录
+
+[design-integration-check-results.json](design-integration-check-results.json)是离线检查的实际记录，验证105类概念的公开表述、目标33字段政策和相关文件哈希。它本身不是虚构用户数据，也不验证外部原件、外部软件、生产服务或用户收益。

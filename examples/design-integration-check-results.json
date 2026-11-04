@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "scope": "offline_anonymous_synthesis_and_concept_crosswalk_only",
+  "concepts_crosswalked": 105,
+  "target_fields": 33,
+  "target_enabled_initially": 21,
+  "target_disabled_initially": 12,
+  "original_materials_published": false,
+  "external_software_run": false,
+  "external_author_tests_run": false,
+  "product_tests_run": false,
+  "findings": [],
+  "artifact_hashes": [
+    {
+      "path": "tools/check_design_integration.py",
+      "sha256": "857164e83f11ee76e4913b8fbefe726dc65a2c666001058757a4d749ed020372"
+    },
+    {
+      "path": "references/README.md",
+      "sha256": "941a7c446b2d1a9ac6a4a387b06a30d4a2ecc23a292fce705bae4c20cbcee260"
+    },
+    {
+      "path": "references/UNIFIED-INTERPRETATION.md",
+      "sha256": "af374360074bef705ae9ebcc1e10a2b031b1ef70daf1cf6b3fe39129d638e0fd"
+    },
+    {
+      "path": "references/FIELD-CROSSWALK.md",
+      "sha256": "3e10d684e5fc8a7d644752d08542d337d2dd24e685a87f60df5ab2a65265075a"
+    },
+    {
+      "path": "references/field-crosswalk.json",
+      "sha256": "db72483c1b0d3c73b5eb2a4da9b86c2cc0068e66a42323e1f4131c03078b2323"
+    },
+    {
+      "path": "docs/deep-dive/11-source-integration.md",
+      "sha256": "1471b730e2a04baf9bd0bfdfcf0fc0a45742f1b36582af408d694e3b0751405c"
+    },
+    {
+      "path": "examples/field-registry.json",
+      "sha256": "4d9f5b5cf57dac2744f8fb8dbbf923499e0a8907f5bf82dd96b1670d711c8c88"
+    }
+  ]
+}

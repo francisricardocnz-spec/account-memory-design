@@ -1,0 +1,4441 @@
+{
+  "edition": "public-design-v0.3.0",
+  "status": "anonymous_design_crosswalk_not_runtime_adapter",
+  "scope": "Reorganized concept compatibility analysis; no original files, author identities or source catalogue are published.",
+  "target_registry": {
+    "path": "examples/field-registry.json",
+    "sha256": "4d9f5b5cf57dac2744f8fb8dbbf923499e0a8907f5bf82dd96b1670d711c8c88",
+    "version": "account-memory-fields-public-v0.1",
+    "field_count": 33,
+    "enabled_initially": 21,
+    "disabled_initially": 12
+  },
+  "concept_count": 105,
+  "mapping_mode_counts": {
+    "关闭扩展": 23,
+    "条件语义映射": 26,
+    "保留原话或局部假设": 5,
+    "独立对象映射": 8,
+    "对象投影": 12,
+    "窄化本人自述": 2,
+    "入口适配后开启": 3,
+    "敏感专项关闭": 1,
+    "同名受限映射": 3,
+    "关系扩展待审": 14,
+    "关闭研究": 8
+  },
+  "automatic_import_allowed": false,
+  "source_scripts_run": false,
+  "product_tests_run": false,
+  "items": [
+    {
+      "concept_index": 1,
+      "concept_id": "traits.big_five.openness",
+      "concept_label": "开放性",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 2,
+      "concept_id": "traits.big_five.conscientiousness",
+      "concept_label": "尽责性",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 3,
+      "concept_id": "traits.big_five.extraversion",
+      "concept_label": "外向性",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 4,
+      "concept_id": "traits.big_five.agreeableness",
+      "concept_label": "宜人性",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 5,
+      "concept_id": "traits.big_five.negative_emotionality",
+      "concept_label": "负性情绪倾向",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 6,
+      "concept_id": "traits.facets.sociability",
+      "concept_label": "社交性",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 7,
+      "concept_id": "traits.facets.assertiveness",
+      "concept_label": "果断性",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 8,
+      "concept_id": "traits.facets.energy_level",
+      "concept_label": "活力",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 9,
+      "concept_id": "traits.facets.compassion",
+      "concept_label": "同情",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 10,
+      "concept_id": "traits.facets.respectfulness",
+      "concept_label": "尊重",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 11,
+      "concept_id": "traits.facets.trust",
+      "concept_label": "信任倾向",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 12,
+      "concept_id": "traits.facets.organization",
+      "concept_label": "条理",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 13,
+      "concept_id": "traits.facets.productiveness",
+      "concept_label": "勤勉",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 14,
+      "concept_id": "traits.facets.responsibility",
+      "concept_label": "责任",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 15,
+      "concept_id": "traits.facets.anxiety",
+      "concept_label": "焦虑倾向",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 16,
+      "concept_id": "traits.facets.depression",
+      "concept_label": "低落倾向",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 17,
+      "concept_id": "traits.facets.emotional_volatility",
+      "concept_label": "情绪波动",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 18,
+      "concept_id": "traits.facets.intellectual_curiosity",
+      "concept_label": "求知",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 19,
+      "concept_id": "traits.facets.aesthetic_sensitivity",
+      "concept_label": "审美敏感",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 20,
+      "concept_id": "traits.facets.creative_imagination",
+      "concept_label": "创造想象",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 21,
+      "concept_id": "traits.contextual_pattern",
+      "concept_label": "带情境的行为倾向",
+      "input_value_kinds": [
+        "text"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [
+        "trait.stable_pattern",
+        "assessment.result"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "trait.stable_pattern": {
+          "field_id": "trait.stable_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "不自动跨关系推广",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "assessment.result": {
+          "field_id": "assessment.result",
+          "value_kind": "measurement",
+          "allowed_epistemic_status": [
+            "measured"
+          ],
+          "subject_constraint": "获准Assessment及metric/计分版本",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "独立效果/量表专项",
+      "interpretation": "倾向描述与标准测量分流；两目标均关闭。局部工作假设另用hypothesis.contextual_pattern并保范围，不能借原字段自动写稳定人格。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 22,
+      "concept_id": "values.self_direction",
+      "concept_label": "自主",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "value.user_defined"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "value.user_defined": {
+          "field_id": "value.user_defined",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人明确价值表达；不是隐含动机",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1明确自述；推断另门",
+      "interpretation": "只接本人明确的文本价值表达，保留原意，不强制Schwartz分类；测量另走关闭的Assessment，隐含取舍不能伪装reported。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 23,
+      "concept_id": "values.stimulation",
+      "concept_label": "刺激",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "value.user_defined"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "value.user_defined": {
+          "field_id": "value.user_defined",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人明确价值表达；不是隐含动机",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1明确自述；推断另门",
+      "interpretation": "只接本人明确的文本价值表达，保留原意，不强制Schwartz分类；测量另走关闭的Assessment，隐含取舍不能伪装reported。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 24,
+      "concept_id": "values.hedonism",
+      "concept_label": "享乐",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "value.user_defined"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "value.user_defined": {
+          "field_id": "value.user_defined",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人明确价值表达；不是隐含动机",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1明确自述；推断另门",
+      "interpretation": "只接本人明确的文本价值表达，保留原意，不强制Schwartz分类；测量另走关闭的Assessment，隐含取舍不能伪装reported。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 25,
+      "concept_id": "values.achievement",
+      "concept_label": "成就",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "value.user_defined"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "value.user_defined": {
+          "field_id": "value.user_defined",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人明确价值表达；不是隐含动机",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1明确自述；推断另门",
+      "interpretation": "只接本人明确的文本价值表达，保留原意，不强制Schwartz分类；测量另走关闭的Assessment，隐含取舍不能伪装reported。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 26,
+      "concept_id": "values.power",
+      "concept_label": "权力",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "value.user_defined"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "value.user_defined": {
+          "field_id": "value.user_defined",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人明确价值表达；不是隐含动机",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1明确自述；推断另门",
+      "interpretation": "只接本人明确的文本价值表达，保留原意，不强制Schwartz分类；测量另走关闭的Assessment，隐含取舍不能伪装reported。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 27,
+      "concept_id": "values.security",
+      "concept_label": "安全",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "value.user_defined"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "value.user_defined": {
+          "field_id": "value.user_defined",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人明确价值表达；不是隐含动机",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1明确自述；推断另门",
+      "interpretation": "只接本人明确的文本价值表达，保留原意，不强制Schwartz分类；测量另走关闭的Assessment，隐含取舍不能伪装reported。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 28,
+      "concept_id": "values.conformity",
+      "concept_label": "遵从",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "value.user_defined"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "value.user_defined": {
+          "field_id": "value.user_defined",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人明确价值表达；不是隐含动机",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1明确自述；推断另门",
+      "interpretation": "只接本人明确的文本价值表达，保留原意，不强制Schwartz分类；测量另走关闭的Assessment，隐含取舍不能伪装reported。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 29,
+      "concept_id": "values.tradition",
+      "concept_label": "传统",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "value.user_defined"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "value.user_defined": {
+          "field_id": "value.user_defined",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人明确价值表达；不是隐含动机",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1明确自述；推断另门",
+      "interpretation": "只接本人明确的文本价值表达，保留原意，不强制Schwartz分类；测量另走关闭的Assessment，隐含取舍不能伪装reported。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 30,
+      "concept_id": "values.benevolence",
+      "concept_label": "仁爱",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "value.user_defined"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "value.user_defined": {
+          "field_id": "value.user_defined",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人明确价值表达；不是隐含动机",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1明确自述；推断另门",
+      "interpretation": "只接本人明确的文本价值表达，保留原意，不强制Schwartz分类；测量另走关闭的Assessment，隐含取舍不能伪装reported。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 31,
+      "concept_id": "values.universalism",
+      "concept_label": "普遍主义",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "value.user_defined"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "value.user_defined": {
+          "field_id": "value.user_defined",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人明确价值表达；不是隐含动机",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1明确自述；推断另门",
+      "interpretation": "只接本人明确的文本价值表达，保留原意，不强制Schwartz分类；测量另走关闭的Assessment，隐含取舍不能伪装reported。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 32,
+      "concept_id": "values.custom",
+      "concept_label": "用户自定义价值",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "value.user_defined"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "value.user_defined": {
+          "field_id": "value.user_defined",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人明确价值表达；不是隐含动机",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1明确自述；推断另门",
+      "interpretation": "只接本人明确的文本价值表达，保留原意，不强制Schwartz分类；测量另走关闭的Assessment，隐含取舍不能伪装reported。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 33,
+      "concept_id": "needs.autonomy",
+      "concept_label": "自主需要",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "保留原话或局部假设",
+      "target_claim_fields": [
+        "self.reported_experience",
+        "hypothesis.contextual_pattern"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "self.reported_experience": {
+          "field_id": "self.reported_experience",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人、事件/时间引用",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "hypothesis.contextual_pattern": {
+          "field_id": "hypothesis.contextual_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "明确局部情境/关系，反证引用",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1局部；新结构字段待审",
+      "interpretation": "分开需要与动机；本人原话保持reported，AI解释只能为受限hypothesis；不是新增needs/motives生产命名空间。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 34,
+      "concept_id": "needs.competence",
+      "concept_label": "胜任需要",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "保留原话或局部假设",
+      "target_claim_fields": [
+        "self.reported_experience",
+        "hypothesis.contextual_pattern"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "self.reported_experience": {
+          "field_id": "self.reported_experience",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人、事件/时间引用",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "hypothesis.contextual_pattern": {
+          "field_id": "hypothesis.contextual_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "明确局部情境/关系，反证引用",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1局部；新结构字段待审",
+      "interpretation": "分开需要与动机；本人原话保持reported，AI解释只能为受限hypothesis；不是新增needs/motives生产命名空间。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 35,
+      "concept_id": "needs.relatedness",
+      "concept_label": "联结需要",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "保留原话或局部假设",
+      "target_claim_fields": [
+        "self.reported_experience",
+        "hypothesis.contextual_pattern"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "self.reported_experience": {
+          "field_id": "self.reported_experience",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人、事件/时间引用",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "hypothesis.contextual_pattern": {
+          "field_id": "hypothesis.contextual_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "明确局部情境/关系，反证引用",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1局部；新结构字段待审",
+      "interpretation": "分开需要与动机；本人原话保持reported，AI解释只能为受限hypothesis；不是新增needs/motives生产命名空间。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 36,
+      "concept_id": "motives.current",
+      "concept_label": "当前动机",
+      "input_value_kinds": [
+        "text",
+        "category"
+      ],
+      "mapping_mode": "保留原话或局部假设",
+      "target_claim_fields": [
+        "self.reported_experience",
+        "hypothesis.contextual_pattern"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "self.reported_experience": {
+          "field_id": "self.reported_experience",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人、事件/时间引用",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "hypothesis.contextual_pattern": {
+          "field_id": "hypothesis.contextual_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "明确局部情境/关系，反证引用",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1局部；新结构字段待审",
+      "interpretation": "分开需要与动机；本人原话保持reported，AI解释只能为受限hypothesis；不是新增needs/motives生产命名空间。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 37,
+      "concept_id": "motives.instrumental_role",
+      "concept_label": "工具性动机",
+      "input_value_kinds": [
+        "text",
+        "category"
+      ],
+      "mapping_mode": "保留原话或局部假设",
+      "target_claim_fields": [
+        "self.reported_experience",
+        "hypothesis.contextual_pattern"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "self.reported_experience": {
+          "field_id": "self.reported_experience",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人、事件/时间引用",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        },
+        "hypothesis.contextual_pattern": {
+          "field_id": "hypothesis.contextual_pattern",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "明确局部情境/关系，反证引用",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1局部；新结构字段待审",
+      "interpretation": "分开需要与动机；本人原话保持reported，AI解释只能为受限hypothesis；不是新增needs/motives生产命名空间。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 38,
+      "concept_id": "values.tradeoff",
+      "concept_label": "价值取舍",
+      "input_value_kinds": [
+        "text",
+        "category"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "value.user_defined"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "value.user_defined": {
+          "field_id": "value.user_defined",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人明确价值表达；不是隐含动机",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1明确自述；推断另门",
+      "interpretation": "只接本人明确的文本价值表达，保留原意，不强制Schwartz分类；测量另走关闭的Assessment，隐含取舍不能伪装reported。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 39,
+      "concept_id": "values.conflict",
+      "concept_label": "价值冲突",
+      "input_value_kinds": [
+        "text",
+        "category"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "value.user_defined"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "value.user_defined": {
+          "field_id": "value.user_defined",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人明确价值表达；不是隐含动机",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1明确自述；推断另门",
+      "interpretation": "只接本人明确的文本价值表达，保留原意，不强制Schwartz分类；测量另走关闭的Assessment，隐含取舍不能伪装reported。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 40,
+      "concept_id": "identity.role",
+      "concept_label": "身份角色",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "identity.role"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "identity.role": {
+          "field_id": "identity.role",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人角色自述",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1",
+      "interpretation": "角色自述可窄化为text；人生章节/意义等通过有来源NarrativeSegment组织，事件与叙事独立版本；不强制归类或积极化。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 41,
+      "concept_id": "identity.life_chapter",
+      "concept_label": "人生章节",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "独立对象映射",
+      "target_claim_fields": [
+        "narrative.segment"
+      ],
+      "target_objects": [
+        "NarrativeSegment"
+      ],
+      "target_field_policies": {
+        "narrative.segment": {
+          "field_id": "narrative.segment",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "reported",
+            "inferred"
+          ],
+          "subject_constraint": "NarrativeSegment/有来源Claim",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P1关闭",
+      "interpretation": "角色自述可窄化为text；人生章节/意义等通过有来源NarrativeSegment组织，事件与叙事独立版本；不强制归类或积极化。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 42,
+      "concept_id": "identity.turning_point",
+      "concept_label": "转折意义",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "独立对象映射",
+      "target_claim_fields": [
+        "narrative.segment"
+      ],
+      "target_objects": [
+        "NarrativeSegment"
+      ],
+      "target_field_policies": {
+        "narrative.segment": {
+          "field_id": "narrative.segment",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "reported",
+            "inferred"
+          ],
+          "subject_constraint": "NarrativeSegment/有来源Claim",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P1关闭",
+      "interpretation": "角色自述可窄化为text；人生章节/意义等通过有来源NarrativeSegment组织，事件与叙事独立版本；不强制归类或积极化。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 43,
+      "concept_id": "identity.self_interpretation",
+      "concept_label": "自我解释",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "独立对象映射",
+      "target_claim_fields": [
+        "narrative.segment"
+      ],
+      "target_objects": [
+        "NarrativeSegment"
+      ],
+      "target_field_policies": {
+        "narrative.segment": {
+          "field_id": "narrative.segment",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "reported",
+            "inferred"
+          ],
+          "subject_constraint": "NarrativeSegment/有来源Claim",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P1关闭",
+      "interpretation": "角色自述可窄化为text；人生章节/意义等通过有来源NarrativeSegment组织，事件与叙事独立版本；不强制归类或积极化。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 44,
+      "concept_id": "identity.future_self",
+      "concept_label": "未来自我",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "独立对象映射",
+      "target_claim_fields": [
+        "narrative.future_self"
+      ],
+      "target_objects": [
+        "NarrativeSegment"
+      ],
+      "target_field_policies": {
+        "narrative.future_self": {
+          "field_id": "narrative.future_self",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人对未来自我的表达；非预测",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P1关闭",
+      "interpretation": "角色自述可窄化为text；人生章节/意义等通过有来源NarrativeSegment组织，事件与叙事独立版本；不强制归类或积极化。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 45,
+      "concept_id": "identity.meaning",
+      "concept_label": "意义来源",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "独立对象映射",
+      "target_claim_fields": [
+        "narrative.segment"
+      ],
+      "target_objects": [
+        "NarrativeSegment"
+      ],
+      "target_field_policies": {
+        "narrative.segment": {
+          "field_id": "narrative.segment",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "reported",
+            "inferred"
+          ],
+          "subject_constraint": "NarrativeSegment/有来源Claim",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P1关闭",
+      "interpretation": "角色自述可窄化为text；人生章节/意义等通过有来源NarrativeSegment组织，事件与叙事独立版本；不强制归类或积极化。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 46,
+      "concept_id": "identity.community",
+      "concept_label": "共同体",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "独立对象映射",
+      "target_claim_fields": [
+        "narrative.segment"
+      ],
+      "target_objects": [
+        "NarrativeSegment"
+      ],
+      "target_field_policies": {
+        "narrative.segment": {
+          "field_id": "narrative.segment",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "reported",
+            "inferred"
+          ],
+          "subject_constraint": "NarrativeSegment/有来源Claim",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P1关闭",
+      "interpretation": "角色自述可窄化为text；人生章节/意义等通过有来源NarrativeSegment组织，事件与叙事独立版本；不强制归类或积极化。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 47,
+      "concept_id": "identity.belonging",
+      "concept_label": "归属",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "独立对象映射",
+      "target_claim_fields": [
+        "narrative.segment"
+      ],
+      "target_objects": [
+        "NarrativeSegment"
+      ],
+      "target_field_policies": {
+        "narrative.segment": {
+          "field_id": "narrative.segment",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "reported",
+            "inferred"
+          ],
+          "subject_constraint": "NarrativeSegment/有来源Claim",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P1关闭",
+      "interpretation": "角色自述可窄化为text；人生章节/意义等通过有来源NarrativeSegment组织，事件与叙事独立版本；不强制归类或积极化。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 48,
+      "concept_id": "identity.role_conflict",
+      "concept_label": "角色冲突",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "独立对象映射",
+      "target_claim_fields": [
+        "narrative.role_conflict"
+      ],
+      "target_objects": [
+        "NarrativeSegment"
+      ],
+      "target_field_policies": {
+        "narrative.role_conflict": {
+          "field_id": "narrative.role_conflict",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "reported",
+            "inferred"
+          ],
+          "subject_constraint": "角色Claim集合及情境；不贴诊断",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P1关闭",
+      "interpretation": "角色自述可窄化为text；人生章节/意义等通过有来源NarrativeSegment组织，事件与叙事独立版本；不强制归类或积极化。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 49,
+      "concept_id": "goal.description",
+      "concept_label": "目标",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "boolean",
+        "reference"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "goal.current"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "goal.current": {
+          "field_id": "goal.current",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人目标/明确截止",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1",
+      "interpretation": "目标/反目标/硬边界/沟通偏好分开，来源值类型缩为text；禁止将原boolean/category/reference静默转成相同含义。保存与外部行动分别核权。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 50,
+      "concept_id": "goal.success_criteria",
+      "concept_label": "成功判据",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "boolean",
+        "reference"
+      ],
+      "mapping_mode": "对象投影",
+      "target_claim_fields": [
+        "goal.current"
+      ],
+      "target_objects": [
+        "GoalContext"
+      ],
+      "target_field_policies": {
+        "goal.current": {
+          "field_id": "goal.current",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人目标/明确截止",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1当前任务",
+      "interpretation": "成功判据/优先级/约束/依赖/状态进入GoalContext有源投影，goal.current只是目标内容引用，不把这些元数据塞进自由field_id；截止日期不创建提醒。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 51,
+      "concept_id": "goal.priority",
+      "concept_label": "优先级",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "boolean",
+        "reference"
+      ],
+      "mapping_mode": "对象投影",
+      "target_claim_fields": [
+        "goal.current"
+      ],
+      "target_objects": [
+        "GoalContext"
+      ],
+      "target_field_policies": {
+        "goal.current": {
+          "field_id": "goal.current",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人目标/明确截止",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1当前任务",
+      "interpretation": "成功判据/优先级/约束/依赖/状态进入GoalContext有源投影，goal.current只是目标内容引用，不把这些元数据塞进自由field_id；截止日期不创建提醒。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 52,
+      "concept_id": "goal.constraint",
+      "concept_label": "目标约束",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "boolean",
+        "reference"
+      ],
+      "mapping_mode": "对象投影",
+      "target_claim_fields": [
+        "goal.current"
+      ],
+      "target_objects": [
+        "GoalContext"
+      ],
+      "target_field_policies": {
+        "goal.current": {
+          "field_id": "goal.current",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人目标/明确截止",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1当前任务",
+      "interpretation": "成功判据/优先级/约束/依赖/状态进入GoalContext有源投影，goal.current只是目标内容引用，不把这些元数据塞进自由field_id；截止日期不创建提醒。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 53,
+      "concept_id": "goal.dependency",
+      "concept_label": "目标依赖",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "boolean",
+        "reference"
+      ],
+      "mapping_mode": "对象投影",
+      "target_claim_fields": [
+        "goal.current"
+      ],
+      "target_objects": [
+        "GoalContext"
+      ],
+      "target_field_policies": {
+        "goal.current": {
+          "field_id": "goal.current",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人目标/明确截止",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1当前任务",
+      "interpretation": "成功判据/优先级/约束/依赖/状态进入GoalContext有源投影，goal.current只是目标内容引用，不把这些元数据塞进自由field_id；截止日期不创建提醒。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 54,
+      "concept_id": "goal.status",
+      "concept_label": "目标状态",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "boolean",
+        "reference"
+      ],
+      "mapping_mode": "对象投影",
+      "target_claim_fields": [
+        "goal.current"
+      ],
+      "target_objects": [
+        "GoalContext"
+      ],
+      "target_field_policies": {
+        "goal.current": {
+          "field_id": "goal.current",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人目标/明确截止",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1当前任务",
+      "interpretation": "成功判据/优先级/约束/依赖/状态进入GoalContext有源投影，goal.current只是目标内容引用，不把这些元数据塞进自由field_id；截止日期不创建提醒。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 55,
+      "concept_id": "antigoal.description",
+      "concept_label": "反目标",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "boolean",
+        "reference"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "antigoal.current"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "antigoal.current": {
+          "field_id": "antigoal.current",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人不希望发生的目标",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1",
+      "interpretation": "目标/反目标/硬边界/沟通偏好分开，来源值类型缩为text；禁止将原boolean/category/reference静默转成相同含义。保存与外部行动分别核权。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 56,
+      "concept_id": "boundary.hard",
+      "concept_label": "硬边界",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "boolean",
+        "reference"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "boundary.explicit"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "boundary.explicit": {
+          "field_id": "boundary.explicit",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人明确边界",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1",
+      "interpretation": "目标/反目标/硬边界/沟通偏好分开，来源值类型缩为text；禁止将原boolean/category/reference静默转成相同含义。保存与外部行动分别核权。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 57,
+      "concept_id": "preference.communication",
+      "concept_label": "沟通偏好",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "boolean",
+        "reference"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "preference.communication"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "preference.communication": {
+          "field_id": "preference.communication",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人沟通偏好及适用情境",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1",
+      "interpretation": "目标/反目标/硬边界/沟通偏好分开，来源值类型缩为text；禁止将原boolean/category/reference静默转成相同含义。保存与外部行动分别核权。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 58,
+      "concept_id": "capability.knowledge",
+      "concept_label": "概念知识",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "窄化本人自述",
+      "target_claim_fields": [
+        "capability.self_evaluation"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "capability.self_evaluation": {
+          "field_id": "capability.self_evaluation",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人能力自述；不造量表分",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1自述/P1能力",
+      "interpretation": "仅保本人能力/知识自述，不证掌握或稳定会做；任务级能力证据进入CapabilityView。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 59,
+      "concept_id": "capability.declared_belief",
+      "concept_label": "声明信念",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "窄化本人自述",
+      "target_claim_fields": [
+        "capability.self_evaluation"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "capability.self_evaluation": {
+          "field_id": "capability.self_evaluation",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人能力自述；不造量表分",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1自述/P1能力",
+      "interpretation": "仅保本人能力/知识自述，不证掌握或稳定会做；任务级能力证据进入CapabilityView。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 60,
+      "concept_id": "capability.observed_behavior",
+      "concept_label": "行为表现",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "对象投影",
+      "target_claim_fields": [
+        "event.behavior"
+      ],
+      "target_objects": [
+        "Behavior",
+        "CapabilityView"
+      ],
+      "target_field_policies": {
+        "event.behavior": {
+          "field_id": "event.behavior",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "reported",
+            "observed"
+          ],
+          "subject_constraint": "Behavior；不含动机事实化",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1事件/P1能力",
+      "interpretation": "从合法行为材料构造有版本Behavior引用，observed须受信回执；不凭源字段名升级为实际观测。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 61,
+      "concept_id": "capability.experience",
+      "concept_label": "经历",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "对象投影",
+      "target_claim_fields": [
+        "event.description"
+      ],
+      "target_objects": [
+        "Event",
+        "CapabilityView"
+      ],
+      "target_field_policies": {
+        "event.description": {
+          "field_id": "event.description",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "reported",
+            "observed"
+          ],
+          "subject_constraint": "Event；observed需受信观察",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1事件/P1能力",
+      "interpretation": "经历先成为性质明确的Event引用，不能仅凭自述次数判技能。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 62,
+      "concept_id": "capability.demonstrated_skill",
+      "concept_label": "任务技能",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [],
+      "target_objects": [
+        "CapabilityView"
+      ],
+      "target_field_policies": {},
+      "review_stage": "P1",
+      "interpretation": "展示技能的独立表现、支持、难度、失败等通过独立对象处理；无当前可直接生产写入的Claim字段。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 63,
+      "concept_id": "capability.outcome",
+      "concept_label": "结果",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "入口适配后开启",
+      "target_claim_fields": [
+        "outcome.observation"
+      ],
+      "target_objects": [
+        "Outcome"
+      ],
+      "target_field_policies": {
+        "outcome.observation": {
+          "field_id": "outcome.observation",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "reported",
+            "observed"
+          ],
+          "subject_constraint": "Outcome及观察窗口/来源",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P0-R2门后",
+      "interpretation": "Outcome须有真实观察窗口/来源，不能将单次结果当稳定能力；当前目标字段仍关闭。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 64,
+      "concept_id": "state.emotion",
+      "concept_label": "情绪",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "state.emotion"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "state.emotion": {
+          "field_id": "state.emotion",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人状态",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1",
+      "interpretation": "只接受文本自述，保时间与未知，不接原schema的通用category/measurement。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 65,
+      "concept_id": "state.stress",
+      "concept_label": "压力",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "state.stress"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "state.stress": {
+          "field_id": "state.stress",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人状态",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1",
+      "interpretation": "只接受文本自述，保时间与未知，不接原schema的通用category/measurement。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 66,
+      "concept_id": "state.energy",
+      "concept_label": "精力",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "state.energy"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "state.energy": {
+          "field_id": "state.energy",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人状态；数字原话不当量表",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1",
+      "interpretation": "只接受文本自述，保时间与未知，不接原schema的通用category/measurement。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 67,
+      "concept_id": "state.attention",
+      "concept_label": "注意",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "state.attention"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "state.attention": {
+          "field_id": "state.attention",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人状态",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1",
+      "interpretation": "只接受文本自述，保时间与未知，不接原schema的通用category/measurement。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 68,
+      "concept_id": "state.cognitive_load",
+      "concept_label": "认知负荷",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "state.cognitive_load"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "state.cognitive_load": {
+          "field_id": "state.cognitive_load",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人状态",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1",
+      "interpretation": "只接受文本自述，保时间与未知，不接原schema的通用category/measurement。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 69,
+      "concept_id": "state.stance",
+      "concept_label": "当前立场",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "state.position"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "state.position": {
+          "field_id": "state.position",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人当前立场；限定问题",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1",
+      "interpretation": "只接受文本自述，保时间与未知，不接原schema的通用category/measurement。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 70,
+      "concept_id": "state.intention",
+      "concept_label": "意图",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "state.intention"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "state.intention": {
+          "field_id": "state.intention",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人当前意图；不是已行动",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1",
+      "interpretation": "只接受文本自述，保时间与未知，不接原schema的通用category/measurement。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 71,
+      "concept_id": "state.physical_self_report",
+      "concept_label": "身体状态自述",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "敏感专项关闭",
+      "target_claim_fields": [
+        "state.physical_discomfort"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "state.physical_discomfort": {
+          "field_id": "state.physical_discomfort",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人身体不适自述；非诊断",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "敏感专项",
+      "interpretation": "源身体状态范围大于目标身体不适，不做等价转换；仅未来获准且确为不适自述时才窄化，目标保持关闭。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 72,
+      "concept_id": "state.sleep_self_report",
+      "concept_label": "睡眠自述",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "关闭扩展",
+      "target_claim_fields": [],
+      "target_objects": [],
+      "target_field_policies": {},
+      "review_stage": "敏感专项",
+      "interpretation": "当前33项没有睡眠结构字段，不借state.energy绕过敏感许可；仅原话本轮处理不获得新长期保存权。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 73,
+      "concept_id": "state.resources",
+      "concept_label": "可用资源",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement"
+      ],
+      "mapping_mode": "条件语义映射",
+      "target_claim_fields": [
+        "state.resources"
+      ],
+      "target_objects": [],
+      "target_field_policies": {
+        "state.resources": {
+          "field_id": "state.resources",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "本人本任务可用资源；敏感内容另门控",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1",
+      "interpretation": "只接受文本自述，保时间与未知，不接原schema的通用category/measurement。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 74,
+      "concept_id": "relationship.type",
+      "concept_label": "关系类型",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "对象投影",
+      "target_claim_fields": [],
+      "target_objects": [
+        "Relationship"
+      ],
+      "target_field_policies": {},
+      "review_stage": "既有实体/R2入口",
+      "interpretation": "映射已有关系实体类型/视角，不新增relationship.type Claim；各方关系称谓可不同。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 75,
+      "concept_id": "relationship.stage",
+      "concept_label": "关系阶段",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "同名受限映射",
+      "target_claim_fields": [
+        "relationship.stage"
+      ],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {
+        "relationship.stage": {
+          "field_id": "relationship.stage",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "Relationship+本人视角",
+          "enabled_initially": false,
+          "sensitivity_floor": "third_party_restricted",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1期待；阶段P0-R2",
+      "interpretation": "同名不等同值类型/性质相同：目标只接受reported text；源inferred改走合法局部假设，不能直接写同名reported。关系敏感下限至少third_party_restricted。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 76,
+      "concept_id": "relationship.expectation",
+      "concept_label": "互动期待",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "同名受限映射",
+      "target_claim_fields": [
+        "relationship.expectation"
+      ],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {
+        "relationship.expectation": {
+          "field_id": "relationship.expectation",
+          "value_kind": "text",
+          "allowed_epistemic_status": [
+            "reported"
+          ],
+          "subject_constraint": "Relationship/关系类型+本人视角",
+          "enabled_initially": true,
+          "sensitivity_floor": "third_party_restricted",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1期待；阶段P0-R2",
+      "interpretation": "同名不等同值类型/性质相同：目标只接受reported text；源inferred改走合法局部假设，不能直接写同名reported。关系敏感下限至少third_party_restricted。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 77,
+      "concept_id": "relationship.norm",
+      "concept_label": "已协商规范",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "入口适配后开启",
+      "target_claim_fields": [
+        "relationship.agreement"
+      ],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {
+        "relationship.agreement": {
+          "field_id": "relationship.agreement",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "reported",
+            "observed"
+          ],
+          "subject_constraint": "约定对象+各方确认receipt；仅本人报告时标本人视角",
+          "enabled_initially": false,
+          "sensitivity_floor": "third_party_restricted",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P0-R2门后",
+      "interpretation": "已协商规范不凭文本当共同同意；构造有各方确认/出处的约定引用；目标保持关闭。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 78,
+      "concept_id": "relationship.need",
+      "concept_label": "关系需要",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "关系扩展待审",
+      "target_claim_fields": [],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {},
+      "review_stage": "P1/敏感专项",
+      "interpretation": "在八维RelationshipView保方向、情境、时间和证据；当前33项没有对应生产field_id，不能藏进任意dimension JSON。权力/安全/依恋体验需更严数据策略。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 79,
+      "concept_id": "relationship.boundary",
+      "concept_label": "关系边界",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "关系扩展待审",
+      "target_claim_fields": [],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {},
+      "review_stage": "P1/敏感专项",
+      "interpretation": "在八维RelationshipView保方向、情境、时间和证据；当前33项没有对应生产field_id，不能藏进任意dimension JSON。权力/安全/依恋体验需更严数据策略。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 80,
+      "concept_id": "relationship.trust",
+      "concept_label": "方向性信任",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "关系扩展待审",
+      "target_claim_fields": [],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {},
+      "review_stage": "P1/敏感专项",
+      "interpretation": "在八维RelationshipView保方向、情境、时间和证据；当前33项没有对应生产field_id，不能藏进任意dimension JSON。权力/安全/依恋体验需更严数据策略。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 81,
+      "concept_id": "relationship.attraction",
+      "concept_label": "自述吸引",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "关系扩展待审",
+      "target_claim_fields": [],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {},
+      "review_stage": "P1/敏感专项",
+      "interpretation": "在八维RelationshipView保方向、情境、时间和证据；当前33项没有对应生产field_id，不能藏进任意dimension JSON。权力/安全/依恋体验需更严数据策略。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 82,
+      "concept_id": "relationship.intimacy",
+      "concept_label": "自述亲近",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "关系扩展待审",
+      "target_claim_fields": [],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {},
+      "review_stage": "P1/敏感专项",
+      "interpretation": "在八维RelationshipView保方向、情境、时间和证据；当前33项没有对应生产field_id，不能藏进任意dimension JSON。权力/安全/依恋体验需更严数据策略。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 83,
+      "concept_id": "relationship.commitment",
+      "concept_label": "承诺",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "关系扩展待审",
+      "target_claim_fields": [],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {},
+      "review_stage": "P1/敏感专项",
+      "interpretation": "在八维RelationshipView保方向、情境、时间和证据；当前33项没有对应生产field_id，不能藏进任意dimension JSON。权力/安全/依恋体验需更严数据策略。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 84,
+      "concept_id": "relationship.reciprocity",
+      "concept_label": "互惠",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "关系扩展待审",
+      "target_claim_fields": [],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {},
+      "review_stage": "P1/敏感专项",
+      "interpretation": "在八维RelationshipView保方向、情境、时间和证据；当前33项没有对应生产field_id，不能藏进任意dimension JSON。权力/安全/依恋体验需更严数据策略。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 85,
+      "concept_id": "relationship.conflict",
+      "concept_label": "冲突",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "关系扩展待审",
+      "target_claim_fields": [],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {},
+      "review_stage": "P1/敏感专项",
+      "interpretation": "在八维RelationshipView保方向、情境、时间和证据；当前33项没有对应生产field_id，不能藏进任意dimension JSON。权力/安全/依恋体验需更严数据策略。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 86,
+      "concept_id": "relationship.repair",
+      "concept_label": "修复",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "关系扩展待审",
+      "target_claim_fields": [],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {},
+      "review_stage": "P1/敏感专项",
+      "interpretation": "在八维RelationshipView保方向、情境、时间和证据；当前33项没有对应生产field_id，不能藏进任意dimension JSON。权力/安全/依恋体验需更严数据策略。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 87,
+      "concept_id": "relationship.power",
+      "concept_label": "权力结构",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "关系扩展待审",
+      "target_claim_fields": [],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {},
+      "review_stage": "P1/敏感专项",
+      "interpretation": "在八维RelationshipView保方向、情境、时间和证据；当前33项没有对应生产field_id，不能藏进任意dimension JSON。权力/安全/依恋体验需更严数据策略。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 88,
+      "concept_id": "relationship.safety",
+      "concept_label": "关系安全",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "关系扩展待审",
+      "target_claim_fields": [],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {},
+      "review_stage": "P1/敏感专项",
+      "interpretation": "在八维RelationshipView保方向、情境、时间和证据；当前33项没有对应生产field_id，不能藏进任意dimension JSON。权力/安全/依恋体验需更严数据策略。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 89,
+      "concept_id": "relationship.family_role",
+      "concept_label": "家庭角色",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "关系扩展待审",
+      "target_claim_fields": [],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {},
+      "review_stage": "P1/敏感专项",
+      "interpretation": "在八维RelationshipView保方向、情境、时间和证据；当前33项没有对应生产field_id，不能藏进任意dimension JSON。权力/安全/依恋体验需更严数据策略。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 90,
+      "concept_id": "relationship.attachment_anxiety",
+      "concept_label": "关系特异焦虑体验",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "关系扩展待审",
+      "target_claim_fields": [],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {},
+      "review_stage": "P1/敏感专项",
+      "interpretation": "在八维RelationshipView保方向、情境、时间和证据；当前33项没有对应生产field_id，不能藏进任意dimension JSON。权力/安全/依恋体验需更严数据策略。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 91,
+      "concept_id": "relationship.attachment_avoidance",
+      "concept_label": "关系特异回避体验",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "measurement",
+        "reference"
+      ],
+      "mapping_mode": "关系扩展待审",
+      "target_claim_fields": [],
+      "target_objects": [
+        "RelationshipView"
+      ],
+      "target_field_policies": {},
+      "review_stage": "P1/敏感专项",
+      "interpretation": "在八维RelationshipView保方向、情境、时间和证据；当前33项没有对应生产field_id，不能藏进任意dimension JSON。权力/安全/依恋体验需更严数据策略。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 92,
+      "concept_id": "event.description",
+      "concept_label": "事件描述",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "同名受限映射",
+      "target_claim_fields": [
+        "event.description"
+      ],
+      "target_objects": [
+        "Event"
+      ],
+      "target_field_policies": {
+        "event.description": {
+          "field_id": "event.description",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "reported",
+            "observed"
+          ],
+          "subject_constraint": "Event；observed需受信观察",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1",
+      "interpretation": "目标值为Event引用，原text/category不能直接粘贴；需来源、发生时间与事件性质，保reported/observed区别。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 93,
+      "concept_id": "behavior.description",
+      "concept_label": "行为描述",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "对象投影",
+      "target_claim_fields": [
+        "event.behavior"
+      ],
+      "target_objects": [
+        "Behavior"
+      ],
+      "target_field_policies": {
+        "event.behavior": {
+          "field_id": "event.behavior",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "reported",
+            "observed"
+          ],
+          "subject_constraint": "Behavior；不含动机事实化",
+          "enabled_initially": true,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "R1",
+      "interpretation": "目标值为Behavior引用；原描述先校验来源/动作/对象，不把摘要当真实工具观测。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 94,
+      "concept_id": "behavior.status",
+      "concept_label": "行为完成状态",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "入口适配后开启",
+      "target_claim_fields": [
+        "action.execution"
+      ],
+      "target_objects": [
+        "Action"
+      ],
+      "target_field_policies": {
+        "action.execution": {
+          "field_id": "action.execution",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "reported",
+            "observed"
+          ],
+          "subject_constraint": "Action及真实completion_object",
+          "enabled_initially": false,
+          "sensitivity_floor": "ordinary_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P0-R2门后",
+      "interpretation": "拆execution_phase与verification_basis、completion_object；不能把draft/confirmed直接当现实完成。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 95,
+      "concept_id": "development.domain",
+      "concept_label": "领域标签",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "关闭研究",
+      "target_claim_fields": [
+        "development.framework_view"
+      ],
+      "target_objects": [
+        "DevelopmentEpisode"
+      ],
+      "target_field_policies": {
+        "development.framework_view": {
+          "field_id": "development.framework_view",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "DevelopmentEpisode与框架权利",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P2",
+      "interpretation": "领域/视角/阶段/整合缺口/Episode/催化均需受管研究合同。摘要archetype/metatype不回写事实，不自动扩生产字段。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 96,
+      "concept_id": "development.perspective_mode",
+      "concept_label": "视角模式",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "关闭研究",
+      "target_claim_fields": [
+        "development.framework_view"
+      ],
+      "target_objects": [
+        "DevelopmentEpisode"
+      ],
+      "target_field_policies": {
+        "development.framework_view": {
+          "field_id": "development.framework_view",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "DevelopmentEpisode与框架权利",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P2",
+      "interpretation": "领域/视角/阶段/整合缺口/Episode/催化均需受管研究合同。摘要archetype/metatype不回写事实，不自动扩生产字段。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 97,
+      "concept_id": "development.phase",
+      "concept_label": "发展阶段假设",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "关闭研究",
+      "target_claim_fields": [
+        "development.framework_view"
+      ],
+      "target_objects": [
+        "DevelopmentEpisode"
+      ],
+      "target_field_policies": {
+        "development.framework_view": {
+          "field_id": "development.framework_view",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "DevelopmentEpisode与框架权利",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P2",
+      "interpretation": "领域/视角/阶段/整合缺口/Episode/催化均需受管研究合同。摘要archetype/metatype不回写事实，不自动扩生产字段。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 98,
+      "concept_id": "development.integration_gap",
+      "concept_label": "整合证据缺口",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "关闭研究",
+      "target_claim_fields": [
+        "development.framework_view"
+      ],
+      "target_objects": [
+        "DevelopmentEpisode"
+      ],
+      "target_field_policies": {
+        "development.framework_view": {
+          "field_id": "development.framework_view",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "DevelopmentEpisode与框架权利",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P2",
+      "interpretation": "领域/视角/阶段/整合缺口/Episode/催化均需受管研究合同。摘要archetype/metatype不回写事实，不自动扩生产字段。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 99,
+      "concept_id": "development.channel",
+      "concept_label": "持续投入Episode",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "关闭研究",
+      "target_claim_fields": [
+        "development.framework_view"
+      ],
+      "target_objects": [
+        "DevelopmentEpisode"
+      ],
+      "target_field_policies": {
+        "development.framework_view": {
+          "field_id": "development.framework_view",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "DevelopmentEpisode与框架权利",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P2",
+      "interpretation": "领域/视角/阶段/整合缺口/Episode/催化均需受管研究合同。摘要archetype/metatype不回写事实，不自动扩生产字段。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 100,
+      "concept_id": "development.catalyst",
+      "concept_label": "催化事件",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "关闭研究",
+      "target_claim_fields": [
+        "development.framework_view"
+      ],
+      "target_objects": [
+        "DevelopmentEpisode"
+      ],
+      "target_field_policies": {
+        "development.framework_view": {
+          "field_id": "development.framework_view",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "DevelopmentEpisode与框架权利",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P2",
+      "interpretation": "领域/视角/阶段/整合缺口/Episode/催化均需受管研究合同。摘要archetype/metatype不回写事实，不自动扩生产字段。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 101,
+      "concept_id": "development.archetype",
+      "concept_label": "局部摘要",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "关闭研究",
+      "target_claim_fields": [
+        "development.framework_view"
+      ],
+      "target_objects": [
+        "DevelopmentEpisode"
+      ],
+      "target_field_policies": {
+        "development.framework_view": {
+          "field_id": "development.framework_view",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "DevelopmentEpisode与框架权利",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P2",
+      "interpretation": "领域/视角/阶段/整合缺口/Episode/催化均需受管研究合同。摘要archetype/metatype不回写事实，不自动扩生产字段。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 102,
+      "concept_id": "development.metatype",
+      "concept_label": "阶段摘要",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "关闭研究",
+      "target_claim_fields": [
+        "development.framework_view"
+      ],
+      "target_objects": [
+        "DevelopmentEpisode"
+      ],
+      "target_field_policies": {
+        "development.framework_view": {
+          "field_id": "development.framework_view",
+          "value_kind": "reference",
+          "allowed_epistemic_status": [
+            "inferred"
+          ],
+          "subject_constraint": "DevelopmentEpisode与框架权利",
+          "enabled_initially": false,
+          "sensitivity_floor": "sensitive_personal",
+          "activation_requires": [
+            "field_policy",
+            "current_source",
+            "applicable_grants",
+            "required_confirmation",
+            "expected_versions"
+          ]
+        }
+      },
+      "review_stage": "P2",
+      "interpretation": "领域/视角/阶段/整合缺口/Episode/催化均需受管研究合同。摘要archetype/metatype不回写事实，不自动扩生产字段。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 103,
+      "concept_id": "context.constraint",
+      "concept_label": "情境约束",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "对象投影",
+      "target_claim_fields": [],
+      "target_objects": [
+        "Context"
+      ],
+      "target_field_policies": {},
+      "review_stage": "既有任务上下文",
+      "interpretation": "情境约束/场景角色/资源进入当前Context引用；场景角色不等同身份认同，不凭属性名推断长期价值或财务事实。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 104,
+      "concept_id": "context.role",
+      "concept_label": "场景角色",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "对象投影",
+      "target_claim_fields": [],
+      "target_objects": [
+        "Context"
+      ],
+      "target_field_policies": {},
+      "review_stage": "既有任务上下文",
+      "interpretation": "情境约束/场景角色/资源进入当前Context引用；场景角色不等同身份认同，不凭属性名推断长期价值或财务事实。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    },
+    {
+      "concept_index": 105,
+      "concept_id": "context.resource",
+      "concept_label": "情境资源",
+      "input_value_kinds": [
+        "text",
+        "category",
+        "reference"
+      ],
+      "mapping_mode": "对象投影",
+      "target_claim_fields": [],
+      "target_objects": [
+        "Context"
+      ],
+      "target_field_policies": {},
+      "review_stage": "既有任务上下文",
+      "interpretation": "情境约束/场景角色/资源进入当前Context引用；场景角色不等同身份认同，不凭属性名推断长期价值或财务事实。",
+      "automatic_import_allowed": false,
+      "adds_public_registry_field": false,
+      "implemented": false,
+      "manual_approval": null
+    }
+  ]
+}

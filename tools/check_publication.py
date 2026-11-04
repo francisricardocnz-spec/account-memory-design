@@ -88,13 +88,14 @@ def check():
     expected=['18672.0000','26592.0000','43632.0000','20976.0000','15464.40000']
     if [row['memory_increment_cost'] for row in cost['scenarios']]!=expected:
         findings.append({'file':'examples/cost-scenario.json','rule':'normalized_cost_arithmetic'})
-    report_path=ROOT/'examples/contract-check-results.json'
-    if report_path.is_file():
-        report=json.loads(report_path.read_text())
-        for artifact in report.get('artifact_hashes',[]):
-            source=ROOT/artifact['path']
-            if not source.is_file() or hashlib.sha256(source.read_bytes()).hexdigest()!=artifact['sha256']:
-                findings.append({'file':artifact['path'],'rule':'stale_contract_check_evidence'})
+    for report_name in ['contract-check-results.json', 'design-integration-check-results.json']:
+        report_path = ROOT / 'examples' / report_name
+        if report_path.is_file():
+            report = json.loads(report_path.read_text())
+            for artifact in report.get('artifact_hashes', []):
+                source = ROOT / artifact['path']
+                if not source.is_file() or hashlib.sha256(source.read_bytes()).hexdigest() != artifact['sha256']:
+                    findings.append({'file': artifact['path'], 'rule': 'stale_check_evidence', 'report': report_name})
     return {'passed': not findings, 'scope': 'offline_document_bundle_only', 'files_checked': len(paths), 'relative_links_checked': checked_links, 'registry_fields': len(fields), 'planned_product_cases': 32, 'product_tests_run': False, 'findings': findings}
 
 

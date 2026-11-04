@@ -1,26 +1,15 @@
-# 参考入口与采用边界
+# 技术规范与匿名分析入口
 
-以下提供公开规范和原型入口，便于读者自行核对。它们各自版本与许可独立；本仓库没有镜像其完整源码、附件或作者规格，也不声称作者认可本设计。
+个人附件的作者、原件名、下载地址和项目出处不在公开版列出。其工程机制已重新组织成[匿名综合分析](deep-dive/11-source-integration.md)、[统一术语](../references/UNIFIED-INTERPRETATION.md)与[105类概念对照](../references/FIELD-CROSSWALK.md)，没有附带原文、源代码或原报告。
 
-| 公开来源 | 可参考的问题 | 本项目的边界 |
+下面保留机器合同与通用技术的规范入口，用于技术核对；不提供个人文件出处，也不表示有关组织认可本方案。
+
+| 技术规范 | 核对内容 | 边界 |
 |---|---|---|
-| [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12) | 结构化合同、联合值与封闭扩展 | 结构合法不能证明来源真实、同意有效或状态可激活 |
-| [PostgreSQL事务](https://www.postgresql.org/docs/current/tutorial-transactions.html) | 多对象提交与回滚 | 业务事务不自动覆盖外部供应商或独立控制域 |
-| [PostgreSQL行级安全](https://www.postgresql.org/docs/current/ddl-rowsecurity.html) | 数据库第二层租户隔离 | 不替代服务端用途、来源、对象存储与队列授权 |
-| [pgvector](https://github.com/pgvector/pgvector) | 可选向量召回与存储测量 | 向量结果不是权威，相关性不授予权限 |
-| [dsh-superagent-prototype](https://github.com/deepseek-ai/dsh-superagent-prototype) | Agent原型的研究入口 | 仅作公开研究入口，不据此宣称已采用、跑通或获得源码许可 |
-| [dsh-identity](https://github.com/Anarrogantcat/dsh-identity) | 身份/记忆/接续原型的设计研究 | 单机文件和游标不直接等价生产多实例或交付证明 |
-| [dsh-mem-weave](https://github.com/QuaonY/dsh-mem-weave) | 分层记忆与组织机制的原型研究 | 不把原型安装或字段存在视为效果验证 |
-| [Stemem](https://github.com/JOJO-Adam/Stemem) | 状态、装配与表达机制的原型研究 | AI角色状态不作为用户心理事实或证据 |
+| [JSON Schema Draft 2020-12 core](https://json-schema.org/draft/2020-12/json-schema-core) | 结构化合同、联合值、封闭扩展 | 结构合法不能证明来源真实、同意有效或可激活 |
+| [OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html) | 接口示例固定采用的版本 | 不声称为最新版本或已部署服务 |
+| [jsonschema验证文档](https://python-jsonschema.readthedocs.io/en/stable/validate/) | meta验证与显式格式检查 | 不替代服务端业务不变量 |
+| [PostgreSQL事务](https://www.postgresql.org/docs/current/tutorial-transactions.html) | 多对象提交与回滚 | 不自动覆盖外部供应商或独立控制域 |
+| [PostgreSQL行级安全](https://www.postgresql.org/docs/current/ddl-rowsecurity.html) | 数据库第二层租户隔离 | 不替代用途、来源、队列和对象存储授权 |
 
-未确认可公开再分发权利的原始私人材料不随仓库发布。引用外部工作不表示把通用工程机制据为独有原创；具体文章、作者规格或实现如进一步采用，应补精确版本、适用范围和许可核对。
-
-这些链接是来源入口，不提供最新版本、功能或价格承诺。发布版工具不访问这些网站，不会下载或执行第三方代码。
-
-## v0.2机器工件的规范入口
-
-- [JSON Schema Draft 2020-12 core](https://json-schema.org/draft/2020-12/json-schema-core)：本版结构示例采用的方言。
-- [jsonschema验证文档](https://python-jsonschema.readthedocs.io/en/stable/validate/)：meta验证、显式格式检查及其职责边界。
-- [OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html)：本版接口示例固定采用的版本，不声称是最新版本。
-
-本仓库没有复制这些规范全文；依赖安装遵循各自许可，工件只是可审阅的示例。
+本仓库没有复制规范全文，也不会自动下载或执行外部项目。依赖安装按其各自许可。资料匿名处理及公开范围见[说明](../PUBLICATION.md)。

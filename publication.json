@@ -1,14 +1,19 @@
 {
-  "edition": "public-design-v0.2.0",
+  "edition": "public-design-v0.3.0",
   "date": "2026-11-04",
-  "status": "design_reference",
+  "status": "design_reference_and_anonymous_synthesis",
   "runtime_implementation_included": false,
   "schema_example_count": 3,
   "openapi_example_operations": 9,
   "shape_example_cases": 27,
-  "deep_dive_chapters": 10,
+  "deep_dive_chapters": 11,
+  "anonymous_concept_crosswalk_rows": 105,
+  "original_materials_included": false,
+  "original_material_provenance_published": false,
+  "external_source_software_run": false,
   "product_tests_run": false,
-  "examples": "synthetic_only",
+  "user_example_payloads": "synthetic_only",
+  "check_reports": "scoped_offline_observations_not_product_acceptance",
   "license": "not_selected",
   "files": [
     {
@@ -18,8 +23,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 915,
-      "sha256": "eefdb94bd3409f9c0b59ff8b34cf50a2eca4b0d7c120cb780519d7d2e10e8427"
+      "bytes": 1538,
+      "sha256": "ce14236e675a2d6226fe8bdff6ab11ba81dddb79fc3fbc3002e589b588c18676"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -28,13 +33,13 @@
     },
     {
       "path": "PUBLICATION.md",
-      "bytes": 2160,
-      "sha256": "2b8dba53f5e1ed1eb88765aaf30a3360d42759e79154e6a9419affd355faead4"
+      "bytes": 2379,
+      "sha256": "c132912421b81f19ab1890a9e5bd98829e279e28c456d45188e95e3705bdf4e2"
     },
     {
       "path": "README.md",
-      "bytes": 5839,
-      "sha256": "f6f9e9b50610c3394c6cda4bcc7bbc5a93cef310f75d21ffc943e19ee095bcb1"
+      "bytes": 6898,
+      "sha256": "cf93b443f31fca634386336b3139026a7da4993eb30b5c1173b0e85666cd4bcd"
     },
     {
       "path": "api/openapi.json",
@@ -93,8 +98,8 @@
     },
     {
       "path": "docs/09-references.md",
-      "bytes": 2669,
-      "sha256": "bba6947a552021ef585c0c6e983c645e582774598105ca94172e458375970a5c"
+      "bytes": 1626,
+      "sha256": "8d653474274e0fa2c0e8e230efe39523ba38f9529f3f6af3a4700ae2a4439b15"
     },
     {
       "path": "docs/deep-dive/01-memory-as-governed-state.md",
@@ -133,8 +138,8 @@
     },
     {
       "path": "docs/deep-dive/08-patterns-and-tradeoffs.md",
-      "bytes": 3918,
-      "sha256": "ae58bb1a8caaf1c859f5cdf38f5c34f91d6e7aef12e466f174dd556131454213"
+      "bytes": 4286,
+      "sha256": "52e6c497792350bcfc50f97795924a6c6ba3e6992d3bb40d417a97248aec9422"
     },
     {
       "path": "docs/deep-dive/09-capacity-economics.md",
@@ -147,9 +152,14 @@
       "sha256": "02211dd8c66358395f08e2a7fc656b8a3f34e9d66df2dd75459760c462df1b19"
     },
     {
+      "path": "docs/deep-dive/11-source-integration.md",
+      "bytes": 16786,
+      "sha256": "1471b730e2a04baf9bd0bfdfcf0fc0a45742f1b36582af408d694e3b0751405c"
+    },
+    {
       "path": "examples/README.md",
-      "bytes": 1963,
-      "sha256": "6f0878bc3ff88e66b87c02dcdee4269a10a1972c36f7458da152e3a4b203ecf6"
+      "bytes": 2297,
+      "sha256": "e2784b51d58eddb4ae4f9f2c3dbb178f5d7e408dff6039f4116cee40a129a00a"
     },
     {
       "path": "examples/capacity-scenario.json",
@@ -177,6 +187,11 @@
       "sha256": "a797c85955cc0ff0ca51176c9434e0c8a80e319f7db7365a73a0d9fd6c200a43"
     },
     {
+      "path": "examples/design-integration-check-results.json",
+      "bytes": 1415,
+      "sha256": "69f3de119f9cdf9076038e0b784d84879e35f5023b6446e5901429ab566ca88e"
+    },
+    {
       "path": "examples/field-registry.json",
       "bytes": 16025,
       "sha256": "4d9f5b5cf57dac2744f8fb8dbbf923499e0a8907f5bf82dd96b1670d711c8c88"
@@ -190,6 +205,26 @@
       "path": "examples/proposal.json",
       "bytes": 1033,
       "sha256": "b4f2c237dd5e8f57eb9f197249487a81ee988917accd028c681bbfd0a9210fbe"
+    },
+    {
+      "path": "references/FIELD-CROSSWALK.md",
+      "bytes": 31555,
+      "sha256": "3e10d684e5fc8a7d644752d08542d337d2dd24e685a87f60df5ab2a65265075a"
+    },
+    {
+      "path": "references/README.md",
+      "bytes": 2014,
+      "sha256": "941a7c446b2d1a9ac6a4a387b06a30d4a2ecc23a292fce705bae4c20cbcee260"
+    },
+    {
+      "path": "references/UNIFIED-INTERPRETATION.md",
+      "bytes": 7446,
+      "sha256": "af374360074bef705ae9ebcc1e10a2b031b1ef70daf1cf6b3fe39129d638e0fd"
+    },
+    {
+      "path": "references/field-crosswalk.json",
+      "bytes": 146446,
+      "sha256": "db72483c1b0d3c73b5eb2a4da9b86c2cc0068e66a42323e1f4131c03078b2323"
     },
     {
       "path": "requirements-dev.txt",
@@ -222,9 +257,14 @@
       "sha256": "6fd780a3d28ab40d51c860c7c43c2db62c6173334bd53e4aefcf60c9179c44ab"
     },
     {
+      "path": "tools/check_design_integration.py",
+      "bytes": 4019,
+      "sha256": "857164e83f11ee76e4913b8fbefe726dc65a2c666001058757a4d749ed020372"
+    },
+    {
       "path": "tools/check_publication.py",
-      "bytes": 5920,
-      "sha256": "da6969213d8ff68a4ae7eeaf9c801a18306d071dbc6f043337e3edec48db5c3d"
+      "bytes": 6061,
+      "sha256": "3b9a2387ceb8ff80c0b8eebd8577f541e4a00ebf1972682537e68e66fb959955"
     },
     {
       "path": "tools/cost_sensitivity.py",

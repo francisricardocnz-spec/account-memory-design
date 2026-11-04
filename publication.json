@@ -1,21 +1,25 @@
 {
-  "edition": "public-design-v0.1.0",
+  "edition": "public-design-v0.2.0",
   "date": "2026-11-04",
   "status": "design_reference",
   "runtime_implementation_included": false,
+  "schema_example_count": 3,
+  "openapi_example_operations": 9,
+  "shape_example_cases": 27,
+  "deep_dive_chapters": 10,
   "product_tests_run": false,
   "examples": "synthetic_only",
   "license": "not_selected",
   "files": [
     {
       "path": ".gitignore",
-      "bytes": 84,
-      "sha256": "ed463d2bf1b1e45ae45ec63d547903a25c5e69d44687b490a8d3cc96e5e84074"
+      "bytes": 91,
+      "sha256": "5800ba7d4868032141f51541f70ba2c011274edf9828195d420dc4109acd9568"
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 410,
-      "sha256": "da070e8d406297cb91e7b47fd209708ef3ecba4b53992b9241be02d8641a69d0"
+      "bytes": 915,
+      "sha256": "eefdb94bd3409f9c0b59ff8b34cf50a2eca4b0d7c120cb780519d7d2e10e8427"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -24,28 +28,43 @@
     },
     {
       "path": "PUBLICATION.md",
-      "bytes": 1972,
-      "sha256": "be0a0c7c4df641f37c1c169ecddbe39165299d7e206582775cdfa6763819fe40"
+      "bytes": 2160,
+      "sha256": "2b8dba53f5e1ed1eb88765aaf30a3360d42759e79154e6a9419affd355faead4"
     },
     {
       "path": "README.md",
-      "bytes": 4050,
-      "sha256": "e7788a6f6eba719fe0c6f5bd7d8e600f0e02d6a8df3e7f3aaee6781573c46efa"
+      "bytes": 5839,
+      "sha256": "f6f9e9b50610c3394c6cda4bcc7bbc5a93cef310f75d21ffc943e19ee095bcb1"
+    },
+    {
+      "path": "api/openapi.json",
+      "bytes": 53296,
+      "sha256": "9ff36bb099cd9be6ffc76c29ef9745f8531465831a15ccdfc2ca4eb29c10e7ac"
+    },
+    {
+      "path": "api/operations.json",
+      "bytes": 2461,
+      "sha256": "739d08ba12d915837993f97bd48ed6d2e5c7d7de9ef7ab25883b3aea85cd2092"
+    },
+    {
+      "path": "assets/overview.svg",
+      "bytes": 2567,
+      "sha256": "462d54c66a2566fc2c82db62e94c35c352c7c5328ed5f8dc21729db7552be22a"
     },
     {
       "path": "docs/01-product.md",
-      "bytes": 3462,
-      "sha256": "cf1851327d2989f0e5bbb27210fbf7682bc51de28fc75c6a6055dfa8fe3f09b7"
+      "bytes": 3572,
+      "sha256": "d1bdade5032d2d6ceec9f4783b4f642ca0c6ba56d7f8bae5ca1719f2be19a011"
     },
     {
       "path": "docs/02-architecture.md",
-      "bytes": 3283,
-      "sha256": "fac2c81961b334a4b2c83767b591263c2c852a7c9bd67b1e8a19370f30f1d72b"
+      "bytes": 3435,
+      "sha256": "00e3bde353f8b721e2e087e862242006068b97d7ed9d6f1533c5e48a3cd21f30"
     },
     {
       "path": "docs/03-contracts.md",
-      "bytes": 5950,
-      "sha256": "ef4c990dd1260cbc9a77c508799c0f81b14b19b4494152c63cb14c7b37ca5725"
+      "bytes": 6114,
+      "sha256": "922d2ab8c26175ed76e7f6f75e4fdc21830cb31ca88eaad776b957c93008d048"
     },
     {
       "path": "docs/04-field-registry.md",
@@ -54,38 +73,108 @@
     },
     {
       "path": "docs/05-engineering.md",
-      "bytes": 6727,
-      "sha256": "c08161abf298afd37a12be1f96691a3862de84868f8ab0036c2acebd3844fdfa"
+      "bytes": 6941,
+      "sha256": "ee4157adaf9e385ec2db31b94c988053118efc721d8edcb09ef0ea0ad93b296e"
     },
     {
       "path": "docs/06-acceptance.md",
-      "bytes": 5156,
-      "sha256": "54eab8de5c2f61443955ab8cc802d8e2dbe464573c6dc8219739de3254a4abb3"
+      "bytes": 5314,
+      "sha256": "05a858e4e3b50a9d2fec0fdc15b0de9b6bc35c9ae93a5cd829182de054e68b67"
     },
     {
       "path": "docs/07-capacity.md",
-      "bytes": 3725,
-      "sha256": "1e26875ab2c6a8bda84f18aa6cdd845a6a12a47479c0b9525592d9e040f10446"
+      "bytes": 3842,
+      "sha256": "7839615fe36a195a5780fa1b0aa88e57f343b3f90823c102d5207b292386e253"
     },
     {
       "path": "docs/08-design-decisions.md",
-      "bytes": 2501,
-      "sha256": "08768af3b646857f8c55ababcdcc61fffe31c364249fdf932cdef6faa42b47e1"
+      "bytes": 2613,
+      "sha256": "353aac580febf7d108dd93c6f7b3078ad0fe99163921c38fea132792d6e1c3d7"
     },
     {
       "path": "docs/09-references.md",
-      "bytes": 2115,
-      "sha256": "2b87b6b07a58ffff8c38300b140e9ee879d6d49b852164e2978514ea163f308b"
+      "bytes": 2669,
+      "sha256": "bba6947a552021ef585c0c6e983c645e582774598105ca94172e458375970a5c"
+    },
+    {
+      "path": "docs/deep-dive/01-memory-as-governed-state.md",
+      "bytes": 8457,
+      "sha256": "531dc777af53a89eca8bea0de8628f69444d4ed3fb53687d3f598204af1c08ae"
+    },
+    {
+      "path": "docs/deep-dive/02-complete-story.md",
+      "bytes": 8135,
+      "sha256": "caef148f835884dd65aa7b2295eafeadebb93bd9aa8ecb96abc573d155ee4f17"
+    },
+    {
+      "path": "docs/deep-dive/03-api-and-storage.md",
+      "bytes": 8155,
+      "sha256": "66d48b76b82580b00a8b75f1a3fc2906a3d39491f0b221a270cd5b95fc279cf8"
+    },
+    {
+      "path": "docs/deep-dive/04-concurrency-and-recovery.md",
+      "bytes": 7212,
+      "sha256": "243ce2f3eca1032a4f5e586177d3dca81dab620c06fad63b42ff61a66aa40aaa"
+    },
+    {
+      "path": "docs/deep-dive/05-retrieval-and-context.md",
+      "bytes": 6975,
+      "sha256": "ecca910733c7d1bbbf5fc0ab6bf4afd2464115e6b9c2d7a44d61f3453d629d2e"
+    },
+    {
+      "path": "docs/deep-dive/06-a2a-and-agent-boundaries.md",
+      "bytes": 4637,
+      "sha256": "5f55a1bf099631cbae91b2df50551cdbedd87e35af76824018d9dfbea5a6ed7d"
+    },
+    {
+      "path": "docs/deep-dive/07-evaluation.md",
+      "bytes": 5155,
+      "sha256": "e21ed17b5bda3b1fea1332a1bf64b4388d6590f5b3f06440d6f0e4f4269f6228"
+    },
+    {
+      "path": "docs/deep-dive/08-patterns-and-tradeoffs.md",
+      "bytes": 3918,
+      "sha256": "ae58bb1a8caaf1c859f5cdf38f5c34f91d6e7aef12e466f174dd556131454213"
+    },
+    {
+      "path": "docs/deep-dive/09-capacity-economics.md",
+      "bytes": 5817,
+      "sha256": "44c0d42042e76e847994fefb91bfa64f933c29cbf911f08c45f0e84eb81e068e"
+    },
+    {
+      "path": "docs/deep-dive/10-machine-contracts.md",
+      "bytes": 5056,
+      "sha256": "02211dd8c66358395f08e2a7fc656b8a3f34e9d66df2dd75459760c462df1b19"
     },
     {
       "path": "examples/README.md",
-      "bytes": 1255,
-      "sha256": "79190068bd4d12c5a408ca71806b2ddff2db7183389fe4a119725e4d33df0f62"
+      "bytes": 1963,
+      "sha256": "6f0878bc3ff88e66b87c02dcdee4269a10a1972c36f7458da152e3a4b203ecf6"
     },
     {
       "path": "examples/capacity-scenario.json",
       "bytes": 434,
       "sha256": "ff270113d4d6f10290a323d76acbf5c2f112d932b7b61936b4cabf6a56efc987"
+    },
+    {
+      "path": "examples/context-bundle.json",
+      "bytes": 1702,
+      "sha256": "ce5b29cd7211b044ab8b3dd67d123a4357b675d50dfa4a387f18a89d47670995"
+    },
+    {
+      "path": "examples/contract-check-results.json",
+      "bytes": 7618,
+      "sha256": "3b685e51a3f845209e395201535e43deb11556ed7c8281ad21f524d199a510f0"
+    },
+    {
+      "path": "examples/correction-receipt.json",
+      "bytes": 325,
+      "sha256": "26350da9dbf77c89ab627483ddec05ad79041295572108d7fbd1d43d57a232b8"
+    },
+    {
+      "path": "examples/cost-scenario.json",
+      "bytes": 615,
+      "sha256": "a797c85955cc0ff0ca51176c9434e0c8a80e319f7db7365a73a0d9fd6c200a43"
     },
     {
       "path": "examples/field-registry.json",
@@ -98,14 +187,49 @@
       "sha256": "250dc568a0f217530db1dc7a612c54543ac3949308a2323d5d77ba241957a28d"
     },
     {
+      "path": "examples/proposal.json",
+      "bytes": 1033,
+      "sha256": "b4f2c237dd5e8f57eb9f197249487a81ee988917accd028c681bbfd0a9210fbe"
+    },
+    {
+      "path": "requirements-dev.txt",
+      "bytes": 34,
+      "sha256": "83de779b9a4bce5a6faee07aabf0d6c9cf8bbab024513a103d4635df501fb2fc"
+    },
+    {
+      "path": "schemas/context-bundle.schema.json",
+      "bytes": 10553,
+      "sha256": "9452ca46da48995374bd9a1330e0f4f308a58bf58eb1d3485696aaaccd59e7b2"
+    },
+    {
+      "path": "schemas/correction-receipt.schema.json",
+      "bytes": 3886,
+      "sha256": "9a5d29547beb06f23105fe0c427cc62c7f06da8d3f0860f1bc5d55ddcaa4dfb6"
+    },
+    {
+      "path": "schemas/proposal.schema.json",
+      "bytes": 26957,
+      "sha256": "ef9d4a0153b3f7542506fbe342227d03b38bf9f23fe476dec5d8fac3bb7d6b08"
+    },
+    {
       "path": "tools/capacity_model.py",
       "bytes": 2070,
       "sha256": "349cde2a0a4cbfe855ca5f079188ddc6c1875153140fb81c3ab24081fff97020"
     },
     {
+      "path": "tools/check_contract_examples.py",
+      "bytes": 9185,
+      "sha256": "6fd780a3d28ab40d51c860c7c43c2db62c6173334bd53e4aefcf60c9179c44ab"
+    },
+    {
       "path": "tools/check_publication.py",
-      "bytes": 4320,
-      "sha256": "6455f1bfc4d4e824c029d6ba5a79ac989fa3f87ddc23fe26d1b0447a5b882d30"
+      "bytes": 5920,
+      "sha256": "da6969213d8ff68a4ae7eeaf9c801a18306d071dbc6f043337e3edec48db5c3d"
+    },
+    {
+      "path": "tools/cost_sensitivity.py",
+      "bytes": 3185,
+      "sha256": "2368d1f42e109217d2326feac3a4c5093cceabb81ba8ff227d7ebc48f472123c"
     }
   ]
 }

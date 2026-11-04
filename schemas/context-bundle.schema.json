@@ -1,0 +1,415 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/account-memory/context-bundle.schema.json",
+  "title": "Host-owned bounded context bundle, public design v0.2",
+  "description": "Structural shape only; owner, sources, deletion state and real token counts need trusted runtime checks.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "bundle_id",
+    "contract_version",
+    "context_generation",
+    "purpose",
+    "audience",
+    "authority_versions",
+    "source_bindings",
+    "segments",
+    "token_accounting",
+    "expires_at"
+  ],
+  "properties": {
+    "bundle_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9_-]+$"
+    },
+    "contract_version": {
+      "const": "memory-context-public-v0.2"
+    },
+    "context_generation": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9_-]+$"
+    },
+    "purpose": {
+      "enum": [
+        "current_turn_processing",
+        "long_term_personalization"
+      ]
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "authority_versions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "model_revision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32,
+          "pattern": "^[1-9][0-9]*$"
+        },
+        "consent_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32,
+          "pattern": "^[1-9][0-9]*$"
+        },
+        "deletion_epoch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32,
+          "pattern": "^(0|[1-9][0-9]*)$"
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "entity_type": {
+                "enum": [
+                  "source",
+                  "evidence",
+                  "claim",
+                  "event",
+                  "behavior",
+                  "memory",
+                  "relationship",
+                  "issue",
+                  "action",
+                  "outcome",
+                  "conversation",
+                  "person",
+                  "proposal"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "revision": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32,
+                "pattern": "^[1-9][0-9]*$"
+              }
+            },
+            "required": [
+              "entity_type",
+              "id",
+              "revision"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 32
+        },
+        "schema_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "registry_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "policy_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        }
+      },
+      "required": [
+        "model_revision",
+        "consent_version",
+        "deletion_epoch",
+        "objects",
+        "schema_version",
+        "registry_version",
+        "policy_version"
+      ]
+    },
+    "source_bindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "entity_type": {
+            "enum": [
+              "source",
+              "evidence",
+              "claim",
+              "event",
+              "behavior",
+              "memory",
+              "relationship",
+              "issue",
+              "action",
+              "outcome",
+              "conversation",
+              "person",
+              "proposal"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "revision": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32,
+            "pattern": "^[1-9][0-9]*$"
+          }
+        },
+        "required": [
+          "entity_type",
+          "id",
+          "revision"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 32
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "current_task",
+              "applicable_background",
+              "confirmed_changes",
+              "relevant_recall",
+              "critical_boundaries"
+            ]
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "item_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9_-]+$"
+                },
+                "source_refs": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "entity_type": {
+                        "enum": [
+                          "source",
+                          "evidence",
+                          "claim",
+                          "event",
+                          "behavior",
+                          "memory",
+                          "relationship",
+                          "issue",
+                          "action",
+                          "outcome",
+                          "conversation",
+                          "person",
+                          "proposal"
+                        ]
+                      },
+                      "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "pattern": "^[A-Za-z0-9_-]+$"
+                      },
+                      "revision": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 32,
+                        "pattern": "^[1-9][0-9]*$"
+                      }
+                    },
+                    "required": [
+                      "entity_type",
+                      "id",
+                      "revision"
+                    ]
+                  },
+                  "minItems": 0,
+                  "maxItems": 32
+                },
+                "text": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                },
+                "inclusion_reason": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                }
+              },
+              "required": [
+                "item_id",
+                "source_refs",
+                "text",
+                "inclusion_reason"
+              ]
+            },
+            "minItems": 0,
+            "maxItems": 32
+          },
+          "omitted_reasons": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            "minItems": 0,
+            "maxItems": 32
+          }
+        },
+        "required": [
+          "kind",
+          "items",
+          "omitted_reasons"
+        ]
+      },
+      "minItems": 5,
+      "maxItems": 5,
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": "current_task"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": "applicable_background"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": "confirmed_changes"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": "relevant_recall"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": "critical_boundaries"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ]
+    },
+    "token_accounting": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "basis": {
+          "enum": [
+            "exact_supported_count",
+            "estimated_conservative_bound"
+          ]
+        },
+        "total_input_tokens": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000
+        },
+        "reserved_output_tokens": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000
+        },
+        "context_limit_tokens": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10000000
+        },
+        "error_budget_tokens": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000
+        }
+      },
+      "required": [
+        "basis",
+        "total_input_tokens",
+        "reserved_output_tokens",
+        "context_limit_tokens",
+        "error_budget_tokens"
+      ]
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "maxLength": 64
+    }
+  }
+}

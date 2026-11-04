@@ -1,5 +1,7 @@
 # 架构：一个权威域，多种受限投影
 
+> 本页保留概览；深度阅读：[系统论证](deep-dive/01-memory-as-governed-state.md)、[状态与存储](deep-dive/03-api-and-storage.md)。
+
 ```mermaid
 flowchart TD
   Entry[对话 / 报告 / 工具 / 记忆中心] --> Authority[受信身份、用途、接收方、当前控制水位]

@@ -1,0 +1,42 @@
+{
+  "synthetic": true,
+  "schema": "../schemas/proposal.schema.json",
+  "data": {
+    "contract_version": "memory-proposal-public-v0.2",
+    "proposal_id": "example-proposal-a",
+    "source_bindings": [
+      {
+        "source_handle": "example_source_a",
+        "source_revision": "1",
+        "locator": {
+          "coordinate_unit": "unicode_code_point",
+          "start": 0,
+          "end": 8
+        },
+        "quote": "回复请简短一些。"
+      }
+    ],
+    "claims": [
+      {
+        "local_id": "example-claim-a",
+        "field_id": "preference.communication",
+        "epistemic_status": "reported",
+        "value": {
+          "kind": "text",
+          "text": "工作讨论时希望简短表达"
+        },
+        "missing_reason": null,
+        "source_handles": [
+          "example_source_a"
+        ],
+        "context": "仅工作讨论",
+        "valid_time": {
+          "start": null,
+          "end": null,
+          "precision": "unknown",
+          "timezone": null
+        }
+      }
+    ]
+  }
+}

@@ -16,3 +16,11 @@
 未确认可公开再分发权利的原始私人材料不随仓库发布。引用外部工作不表示把通用工程机制据为独有原创；具体文章、作者规格或实现如进一步采用，应补精确版本、适用范围和许可核对。
 
 这些链接是来源入口，不提供最新版本、功能或价格承诺。发布版工具不访问这些网站，不会下载或执行第三方代码。
+
+## v0.2机器工件的规范入口
+
+- [JSON Schema Draft 2020-12 core](https://json-schema.org/draft/2020-12/json-schema-core)：本版结构示例采用的方言。
+- [jsonschema验证文档](https://python-jsonschema.readthedocs.io/en/stable/validate/)：meta验证、显式格式检查及其职责边界。
+- [OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html)：本版接口示例固定采用的版本，不声称是最新版本。
+
+本仓库没有复制这些规范全文；依赖安装遵循各自许可，工件只是可审阅的示例。

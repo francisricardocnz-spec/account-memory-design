@@ -1,5 +1,7 @@
 # 开发合同
 
+> 本页保留概览；深度阅读：[并发与恢复](deep-dive/04-concurrency-and-recovery.md)、[检索与上下文](deep-dive/05-retrieval-and-context.md)、[A2A](deep-dive/06-a2a-and-agent-boundaries.md)。
+
 ## 一次更新的12步
 
 | 步骤 | 工作 | 失败边界 |

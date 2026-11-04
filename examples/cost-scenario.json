@@ -1,0 +1,24 @@
+{
+  "synthetic": true,
+  "parameters": {
+    "dau": 100000,
+    "turns_per_dau": 8,
+    "days": 30,
+    "main_calls_per_turn": 1.1,
+    "memory_input_fraction": 0.6,
+    "memory_input_tokens": 900,
+    "memory_cache_fraction": 0,
+    "proposal_output_tokens_per_turn": 40,
+    "extra_calls_per_turn": 0.02,
+    "extra_input_tokens": 800,
+    "extra_output_tokens": 100,
+    "baseline_input_tokens": 2000,
+    "baseline_output_tokens": 512
+  },
+  "prices": {
+    "unit": "normalized_synthetic_units",
+    "uncached_input_per_million": "1",
+    "cached_input_per_million": "0.25",
+    "output_per_million": "4"
+  }
+}

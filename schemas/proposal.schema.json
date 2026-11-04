@@ -1,0 +1,1118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/account-memory/proposal.schema.json",
+  "title": "Untrusted model extraction proposal, public design v0.2",
+  "description": "Structure example for initially enabled fields only. Does not validate real authority, source authenticity, source ownership or activation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "proposal_id",
+    "source_bindings",
+    "claims"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "memory-proposal-public-v0.2"
+    },
+    "proposal_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9_-]+$"
+    },
+    "source_bindings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/SourceBinding"
+      },
+      "minItems": 1,
+      "maxItems": 32
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ClaimCandidate"
+      },
+      "minItems": 0,
+      "maxItems": 32
+    }
+  },
+  "$defs": {
+    "SourceBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_handle": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9_-]{8,128}$"
+        },
+        "source_revision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32,
+          "pattern": "^[1-9][0-9]*$"
+        },
+        "locator": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "coordinate_unit": {
+              "const": "unicode_code_point"
+            },
+            "start": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000000
+            },
+            "end": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000000
+            }
+          },
+          "required": [
+            "coordinate_unit",
+            "start",
+            "end"
+          ]
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        }
+      },
+      "required": [
+        "source_handle",
+        "source_revision",
+        "locator",
+        "quote"
+      ]
+    },
+    "ClaimCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "local_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "field_id": {
+          "enum": [
+            "self.reported_experience",
+            "event.description",
+            "event.behavior",
+            "state.emotion",
+            "state.energy",
+            "state.stress",
+            "state.attention",
+            "state.cognitive_load",
+            "state.position",
+            "state.intention",
+            "state.life_context",
+            "state.resources",
+            "preference.communication",
+            "boundary.explicit",
+            "goal.current",
+            "antigoal.current",
+            "identity.role",
+            "relationship.expectation",
+            "hypothesis.contextual_pattern",
+            "capability.self_evaluation",
+            "value.user_defined"
+          ]
+        },
+        "epistemic_status": {
+          "enum": [
+            "reported",
+            "inferred"
+          ]
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "const": "text"
+                },
+                "text": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1000
+                }
+              },
+              "required": [
+                "kind",
+                "text"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "const": "reference"
+                },
+                "ref": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "entity_type": {
+                      "enum": [
+                        "source",
+                        "evidence",
+                        "claim",
+                        "event",
+                        "behavior",
+                        "memory",
+                        "relationship",
+                        "issue",
+                        "action",
+                        "outcome",
+                        "conversation",
+                        "person",
+                        "proposal"
+                      ]
+                    },
+                    "id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128,
+                      "pattern": "^[A-Za-z0-9_-]+$"
+                    },
+                    "revision": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 32,
+                      "pattern": "^[1-9][0-9]*$"
+                    }
+                  },
+                  "required": [
+                    "entity_type",
+                    "id",
+                    "revision"
+                  ]
+                }
+              },
+              "required": [
+                "kind",
+                "ref"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "missing_reason": {
+          "enum": [
+            null,
+            "unknown",
+            "not_asked",
+            "declined",
+            "unobservable",
+            "not_applicable",
+            "deleted"
+          ]
+        },
+        "source_handles": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9_-]{8,128}$"
+          },
+          "minItems": 1,
+          "maxItems": 32
+        },
+        "context": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "valid_time": {
+          "$ref": "#/$defs/ValidTime"
+        },
+        "support": {
+          "enum": [
+            "insufficient",
+            "provisional",
+            "supported",
+            "corroborated"
+          ]
+        }
+      },
+      "required": [
+        "local_id",
+        "field_id",
+        "epistemic_status",
+        "value",
+        "missing_reason",
+        "source_handles",
+        "context",
+        "valid_time"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "missing_reason": {
+                "type": "string"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "missing_reason": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "epistemic_status": {
+                "const": "inferred"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "support"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "self.reported_experience"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "event.description"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "reference"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "event.behavior"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "reference"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "state.emotion"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "state.energy"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "state.stress"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "state.attention"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "state.cognitive_load"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "state.position"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "state.intention"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "state.life_context"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "state.resources"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "preference.communication"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "boundary.explicit"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "goal.current"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "antigoal.current"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "identity.role"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "relationship.expectation"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "hypothesis.contextual_pattern"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "inferred"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "capability.self_evaluation"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "field_id": {
+                "const": "value.user_defined"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "epistemic_status": {
+                "enum": [
+                  "reported"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "text"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ValidTime": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "maxLength": 64
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "end": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "maxLength": 64
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "precision": {
+          "enum": [
+            "instant",
+            "day",
+            "week",
+            "month",
+            "approximate",
+            "unknown"
+          ]
+        },
+        "timezone": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "precision",
+        "timezone"
+      ]
+    }
+  }
+}

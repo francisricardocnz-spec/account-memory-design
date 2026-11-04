@@ -1,5 +1,7 @@
 # 领域与数据合同
 
+> 本页保留概览；深度阅读：[接口/存储完整说明](deep-dive/03-api-and-storage.md)、[机器合同的边界](deep-dive/10-machine-contracts.md)。
+
 以下是设计合同与示例，不是现成生产Schema。字段和权限必须由服务端校验，不能只依赖提示词。
 
 ## 三个分类轴

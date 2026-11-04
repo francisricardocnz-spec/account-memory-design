@@ -1,0 +1,194 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "operation_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9_-]+$"
+    },
+    "state": {
+      "enum": [
+        "unknown",
+        "processing",
+        "committed",
+        "failed"
+      ]
+    },
+    "stop_state": {
+      "enum": [
+        "not_requested",
+        "processing",
+        "blocked",
+        "failed"
+      ]
+    },
+    "independent_ledger_state": {
+      "enum": [
+        "not_applicable",
+        "pending",
+        "durable",
+        "unavailable"
+      ]
+    },
+    "replacement_save_state": {
+      "enum": [
+        "not_requested",
+        "awaiting_confirmation",
+        "awaiting_grant",
+        "processing",
+        "committed",
+        "failed",
+        "stopped"
+      ]
+    },
+    "result_code": {
+      "enum": [
+        "REPLACED",
+        "STOPPED_ONLY",
+        "STOPPED_REPLACEMENT_PENDING",
+        "STOPPED_REPLACEMENT_FAILED",
+        "RESULT_UNKNOWN"
+      ]
+    }
+  },
+  "required": [
+    "operation_id",
+    "state",
+    "stop_state",
+    "independent_ledger_state",
+    "replacement_save_state",
+    "result_code"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/account-memory/correction-receipt.schema.json",
+  "title": "Composite correction receipt, public design v0.2",
+  "description": "Does not prove the ledger is really durable; trusted operations must supply real evidence.",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "stop_state": {
+            "const": "blocked"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "independent_ledger_state": {
+            "const": "durable"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "result_code": {
+            "const": "STOPPED_REPLACEMENT_FAILED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "stop_state": {
+            "const": "blocked"
+          },
+          "replacement_save_state": {
+            "const": "failed"
+          },
+          "state": {
+            "const": "failed"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "result_code": {
+            "const": "REPLACED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "replacement_save_state": {
+            "const": "committed"
+          },
+          "state": {
+            "const": "committed"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "result_code": {
+            "const": "STOPPED_ONLY"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "stop_state": {
+            "const": "blocked"
+          },
+          "replacement_save_state": {
+            "const": "not_requested"
+          },
+          "state": {
+            "const": "committed"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "result_code": {
+            "const": "RESULT_UNKNOWN"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "state": {
+            "enum": [
+              "unknown",
+              "processing"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "result_code": {
+            "const": "STOPPED_REPLACEMENT_PENDING"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "stop_state": {
+            "const": "blocked"
+          },
+          "state": {
+            "const": "processing"
+          },
+          "replacement_save_state": {
+            "enum": [
+              "awaiting_confirmation",
+              "awaiting_grant",
+              "processing"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1954 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "Account Memory Design API",
+    "version": "0.2.0",
+    "description": "Review-only interface example. No deployed service, real authentication, authorization, deletion or retention proof is provided."
+  },
+  "servers": [
+    {
+      "url": "https://api.example.invalid",
+      "description": "Non-routable example, not a production destination"
+    }
+  ],
+  "paths": {
+    "/v1/memory/management/entries": {
+      "get": {
+        "operationId": "listManagedEntries",
+        "summary": "Owner-management metadata; original AI grant need not be restored",
+        "responses": {
+          "200": {
+            "description": "Operation-specific result; does not imply all physical copies deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagedEntries"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Permission denied; object existence may use nonenumerable404.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Object unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or state conflict.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid typed request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Authority or required service unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            }
+          }
+        ]
+      }
+    },
+    "/v1/memory/context": {
+      "post": {
+        "operationId": "prepareTaskContext",
+        "summary": "Trusted host only: bounded task context",
+        "responses": {
+          "200": {
+            "description": "Operation-specific result; does not imply all physical copies deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContextBundle"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Permission denied; object existence may use nonenumerable404.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Object unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or state conflict.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid typed request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Authority or required service unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "428": {
+            "description": "Required content-write precondition missing.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContextRequest"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_-]{8,128}$"
+            },
+            "description": "Owner+operation domain key; unknown outcomes are queried, not replayed under a new key."
+          }
+        ],
+        "x-required-caller": "trusted-host-with-task-capability"
+      }
+    },
+    "/v1/memory/proposals/{id}": {
+      "get": {
+        "operationId": "getProposal",
+        "summary": "Read current proposal gates without renewing retention",
+        "responses": {
+          "200": {
+            "description": "Operation-specific result; does not imply all physical copies deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProposalView"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Permission denied; object existence may use nonenumerable404.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Object unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or state conflict.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid typed request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Authority or required service unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          }
+        ]
+      }
+    },
+    "/v1/memory/proposals/{id}/confirm": {
+      "post": {
+        "operationId": "confirmProposal",
+        "summary": "Bind content and explicitly selected grant choices",
+        "responses": {
+          "200": {
+            "description": "Operation-specific result; does not imply all physical copies deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OperationResult"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Permission denied; object existence may use nonenumerable404.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Object unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or state conflict.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid typed request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Authority or required service unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "428": {
+            "description": "Required content-write precondition missing.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Processing or unknown outcome. Query original operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OperationResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmRequest"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_-]{8,128}$"
+            },
+            "description": "Owner+operation domain key; unknown outcomes are queried, not replayed under a new key."
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          }
+        ]
+      }
+    },
+    "/v1/memory/corrections/preview": {
+      "post": {
+        "operationId": "previewCorrection",
+        "summary": "Prepare a bounded versioned impact preview",
+        "responses": {
+          "200": {
+            "description": "Operation-specific result; does not imply all physical copies deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CorrectionPreview"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Permission denied; object existence may use nonenumerable404.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Object unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or state conflict.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid typed request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Authority or required service unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "428": {
+            "description": "Required content-write precondition missing.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CorrectionPreviewRequest"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_-]{8,128}$"
+            },
+            "description": "Owner+operation domain key; unknown outcomes are queried, not replayed under a new key."
+          }
+        ]
+      }
+    },
+    "/v1/memory/corrections": {
+      "post": {
+        "operationId": "commitCorrection",
+        "summary": "Return stop and replacement outcomes separately",
+        "responses": {
+          "200": {
+            "description": "Operation-specific result; does not imply all physical copies deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CorrectionReceipt"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Permission denied; object existence may use nonenumerable404.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Object unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or state conflict.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid typed request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Authority or required service unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "428": {
+            "description": "Required content-write precondition missing.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Processing or unknown outcome. Query original operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CorrectionReceipt"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CorrectionRequest"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_-]{8,128}$"
+            },
+            "description": "Owner+operation domain key; unknown outcomes are queried, not replayed under a new key."
+          }
+        ]
+      }
+    },
+    "/v1/memory/controls/stops": {
+      "post": {
+        "operationId": "stopMemoryUse",
+        "summary": "Authenticated owner control; no paid-model prerequisite",
+        "responses": {
+          "200": {
+            "description": "Operation-specific result; does not imply all physical copies deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ControlReceipt"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Permission denied; object existence may use nonenumerable404.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Object unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or state conflict.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid typed request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Authority or required service unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Processing or unknown outcome. Query original operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ControlReceipt"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ControlRequest"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_-]{8,128}$"
+            },
+            "description": "Owner+operation domain key; unknown outcomes are queried, not replayed under a new key."
+          }
+        ]
+      }
+    },
+    "/v1/memory/deletions": {
+      "post": {
+        "operationId": "deleteMemoryContent",
+        "summary": "Scope-aware blocking and physical-copy cleanup",
+        "responses": {
+          "200": {
+            "description": "Operation-specific result; does not imply all physical copies deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ControlReceipt"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Permission denied; object existence may use nonenumerable404.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Object unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or state conflict.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid typed request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Authority or required service unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Processing or unknown outcome. Query original operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ControlReceipt"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ControlRequest"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_-]{8,128}$"
+            },
+            "description": "Owner+operation domain key; unknown outcomes are queried, not replayed under a new key."
+          }
+        ]
+      }
+    },
+    "/v1/memory/operations/{id}": {
+      "get": {
+        "operationId": "getOriginalOperation",
+        "summary": "Read original operation; never redispatch a model or action",
+        "responses": {
+          "200": {
+            "description": "Operation-specific result; does not imply all physical copies deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/OperationResult"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ControlReceipt"
+                    },
+                    {
+                      "$ref": "#/components/schemas/CorrectionReceipt"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Permission denied; object existence may use nonenumerable404.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Object unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version or state conflict.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid typed request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Authority or required service unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Description only; internal context also needs a trusted host capability."
+      }
+    },
+    "schemas": {
+      "EntityRef": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "entity_type": {
+            "enum": [
+              "source",
+              "evidence",
+              "claim",
+              "event",
+              "behavior",
+              "memory",
+              "relationship",
+              "issue",
+              "action",
+              "outcome",
+              "conversation",
+              "person",
+              "proposal"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "revision": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32,
+            "pattern": "^[1-9][0-9]*$"
+          }
+        },
+        "required": [
+          "entity_type",
+          "id",
+          "revision"
+        ]
+      },
+      "ExpectedVersions": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "model_revision": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32,
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "consent_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32,
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "deletion_epoch": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32,
+            "pattern": "^(0|[1-9][0-9]*)$"
+          },
+          "objects": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "entity_type": {
+                  "enum": [
+                    "source",
+                    "evidence",
+                    "claim",
+                    "event",
+                    "behavior",
+                    "memory",
+                    "relationship",
+                    "issue",
+                    "action",
+                    "outcome",
+                    "conversation",
+                    "person",
+                    "proposal"
+                  ]
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9_-]+$"
+                },
+                "revision": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32,
+                  "pattern": "^[1-9][0-9]*$"
+                }
+              },
+              "required": [
+                "entity_type",
+                "id",
+                "revision"
+              ]
+            },
+            "minItems": 0,
+            "maxItems": 32
+          },
+          "schema_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "registry_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "policy_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "required": [
+          "model_revision",
+          "consent_version",
+          "deletion_epoch",
+          "objects",
+          "schema_version",
+          "registry_version",
+          "policy_version"
+        ]
+      },
+      "OperationResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "operation_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "state": {
+            "enum": [
+              "unknown",
+              "processing",
+              "committed",
+              "failed"
+            ]
+          },
+          "save_state": {
+            "enum": [
+              "not_requested",
+              "awaiting_confirmation",
+              "awaiting_grant",
+              "processing",
+              "committed",
+              "failed",
+              "stopped"
+            ]
+          },
+          "result_ref": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "operation_id",
+          "state",
+          "save_state",
+          "result_ref"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "retryable": {
+            "type": "boolean"
+          },
+          "operation_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "retryable",
+          "operation_id"
+        ]
+      },
+      "ManagedEntry": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "record_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "entity_type": {
+                "enum": [
+                  "source",
+                  "evidence",
+                  "claim",
+                  "event",
+                  "behavior",
+                  "memory",
+                  "relationship",
+                  "issue",
+                  "action",
+                  "outcome",
+                  "conversation",
+                  "person",
+                  "proposal"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "revision": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32,
+                "pattern": "^[1-9][0-9]*$"
+              }
+            },
+            "required": [
+              "entity_type",
+              "id",
+              "revision"
+            ]
+          },
+          "display_state": {
+            "enum": [
+              "candidate",
+              "usable",
+              "disputed",
+              "stopped",
+              "unavailable",
+              "deleted_metadata_only"
+            ]
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "record_ref",
+          "display_state",
+          "summary"
+        ]
+      },
+      "ManagedEntries": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ManagedEntry"
+            },
+            "minItems": 0,
+            "maxItems": 100
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "coverage": {
+            "enum": [
+              "complete_for_declared_scope",
+              "bounded",
+              "incomplete"
+            ]
+          }
+        },
+        "required": [
+          "items",
+          "next_cursor",
+          "coverage"
+        ]
+      },
+      "ProposalView": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "proposal_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "entity_type": {
+                "enum": [
+                  "source",
+                  "evidence",
+                  "claim",
+                  "event",
+                  "behavior",
+                  "memory",
+                  "relationship",
+                  "issue",
+                  "action",
+                  "outcome",
+                  "conversation",
+                  "person",
+                  "proposal"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "revision": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32,
+                "pattern": "^[1-9][0-9]*$"
+              }
+            },
+            "required": [
+              "entity_type",
+              "id",
+              "revision"
+            ]
+          },
+          "confirmation": {
+            "enum": [
+              "unasked",
+              "confirmed",
+              "rejected"
+            ]
+          },
+          "save_state": {
+            "enum": [
+              "not_requested",
+              "awaiting_confirmation",
+              "awaiting_grant",
+              "processing",
+              "committed",
+              "failed",
+              "stopped"
+            ]
+          },
+          "pending_requirements": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "content_confirmation",
+                "candidate_retention_grant",
+                "source_retention_grant",
+                "long_term_grant",
+                "sensitive_grant",
+                "support_sufficient"
+              ]
+            },
+            "minItems": 0,
+            "maxItems": 6
+          },
+          "blocked_reasons": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            "minItems": 0,
+            "maxItems": 16
+          }
+        },
+        "required": [
+          "proposal_ref",
+          "confirmation",
+          "save_state",
+          "pending_requirements",
+          "blocked_reasons"
+        ]
+      },
+      "ConfirmRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "proposal_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "entity_type": {
+                "enum": [
+                  "source",
+                  "evidence",
+                  "claim",
+                  "event",
+                  "behavior",
+                  "memory",
+                  "relationship",
+                  "issue",
+                  "action",
+                  "outcome",
+                  "conversation",
+                  "person",
+                  "proposal"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "revision": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32,
+                "pattern": "^[1-9][0-9]*$"
+              }
+            },
+            "required": [
+              "entity_type",
+              "id",
+              "revision"
+            ]
+          },
+          "confirmation": {
+            "const": "confirmed"
+          },
+          "selected_purposes": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "long_term_personalization",
+                "candidate_review"
+              ]
+            },
+            "minItems": 1,
+            "maxItems": 2
+          },
+          "source_retention_choice": {
+            "enum": [
+              "source_bound",
+              "retain_minimal_quote"
+            ]
+          },
+          "expected_versions": {
+            "$ref": "#/components/schemas/ExpectedVersions"
+          }
+        },
+        "required": [
+          "proposal_ref",
+          "confirmation",
+          "selected_purposes",
+          "source_retention_choice",
+          "expected_versions"
+        ]
+      },
+      "CorrectionPreviewRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "target_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "entity_type": {
+                "enum": [
+                  "source",
+                  "evidence",
+                  "claim",
+                  "event",
+                  "behavior",
+                  "memory",
+                  "relationship",
+                  "issue",
+                  "action",
+                  "outcome",
+                  "conversation",
+                  "person",
+                  "proposal"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "revision": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32,
+                "pattern": "^[1-9][0-9]*$"
+              }
+            },
+            "required": [
+              "entity_type",
+              "id",
+              "revision"
+            ]
+          },
+          "intent": {
+            "enum": [
+              "replace_content",
+              "reject_and_replace",
+              "stop_only"
+            ]
+          },
+          "replacement_source_ref": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "entity_type": {
+                    "enum": [
+                      "source",
+                      "evidence",
+                      "claim",
+                      "event",
+                      "behavior",
+                      "memory",
+                      "relationship",
+                      "issue",
+                      "action",
+                      "outcome",
+                      "conversation",
+                      "person",
+                      "proposal"
+                    ]
+                  },
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "pattern": "^[A-Za-z0-9_-]+$"
+                  },
+                  "revision": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 32,
+                    "pattern": "^[1-9][0-9]*$"
+                  }
+                },
+                "required": [
+                  "entity_type",
+                  "id",
+                  "revision"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "expected_versions": {
+            "$ref": "#/components/schemas/ExpectedVersions"
+          }
+        },
+        "required": [
+          "target_ref",
+          "intent",
+          "replacement_source_ref",
+          "expected_versions"
+        ]
+      },
+      "CorrectionPreview": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "preview_ref": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "target_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "entity_type": {
+                "enum": [
+                  "source",
+                  "evidence",
+                  "claim",
+                  "event",
+                  "behavior",
+                  "memory",
+                  "relationship",
+                  "issue",
+                  "action",
+                  "outcome",
+                  "conversation",
+                  "person",
+                  "proposal"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "revision": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32,
+                "pattern": "^[1-9][0-9]*$"
+              }
+            },
+            "required": [
+              "entity_type",
+              "id",
+              "revision"
+            ]
+          },
+          "affected_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "coverage": {
+            "enum": [
+              "bounded",
+              "incomplete"
+            ]
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time",
+            "maxLength": 64
+          }
+        },
+        "required": [
+          "preview_ref",
+          "target_ref",
+          "affected_count",
+          "coverage",
+          "expires_at"
+        ]
+      },
+      "CorrectionRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "preview_ref": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "intent": {
+            "enum": [
+              "replace_content",
+              "reject_and_replace",
+              "stop_only"
+            ]
+          },
+          "expected_versions": {
+            "$ref": "#/components/schemas/ExpectedVersions"
+          }
+        },
+        "required": [
+          "preview_ref",
+          "intent",
+          "expected_versions"
+        ]
+      },
+      "ControlRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "selector_kind": {
+            "enum": [
+              "record",
+              "conversation_storage",
+              "source_lineage",
+              "person_topic",
+              "account_memory"
+            ]
+          },
+          "target_refs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "entity_type": {
+                  "enum": [
+                    "source",
+                    "evidence",
+                    "claim",
+                    "event",
+                    "behavior",
+                    "memory",
+                    "relationship",
+                    "issue",
+                    "action",
+                    "outcome",
+                    "conversation",
+                    "person",
+                    "proposal"
+                  ]
+                },
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9_-]+$"
+                },
+                "revision": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32,
+                  "pattern": "^[1-9][0-9]*$"
+                }
+              },
+              "required": [
+                "entity_type",
+                "id",
+                "revision"
+              ]
+            },
+            "minItems": 0,
+            "maxItems": 100
+          },
+          "include_independent_quotes": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "selector_kind",
+          "target_refs",
+          "include_independent_quotes"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "selector_kind": {
+                  "enum": [
+                    "source_lineage",
+                    "person_topic",
+                    "account_memory"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "include_independent_quotes": {
+                  "const": true
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "selector_kind": {
+                  "const": "account_memory"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "target_refs": {
+                  "maxItems": 0
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "target_refs": {
+                  "minItems": 1
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ControlReceipt": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "operation_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "state": {
+            "enum": [
+              "unknown",
+              "processing",
+              "committed",
+              "failed"
+            ]
+          },
+          "new_use_state": {
+            "enum": [
+              "pending",
+              "blocked"
+            ]
+          },
+          "independent_ledger_state": {
+            "enum": [
+              "pending",
+              "durable",
+              "unavailable"
+            ]
+          },
+          "phase": {
+            "enum": [
+              "intent_registered",
+              "blocking",
+              "blocked",
+              "purging",
+              "verifying",
+              "completed",
+              "retrying",
+              "failed_needs_attention"
+            ]
+          },
+          "external_copy_state": {
+            "enum": [
+              "not_applicable",
+              "notification_pending",
+              "notified",
+              "acknowledged",
+              "unknown"
+            ]
+          },
+          "all_physical_copies_deleted": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "operation_id",
+          "state",
+          "new_use_state",
+          "independent_ledger_state",
+          "phase",
+          "external_copy_state",
+          "all_physical_copies_deleted"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "new_use_state": {
+                  "const": "blocked"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "independent_ledger_state": {
+                  "const": "durable"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "all_physical_copies_deleted": {
+                  "const": true
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "phase": {
+                  "const": "completed"
+                },
+                "new_use_state": {
+                  "const": "blocked"
+                },
+                "independent_ledger_state": {
+                  "const": "durable"
+                },
+                "external_copy_state": {
+                  "const": "not_applicable"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ContextRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "task_ref": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "purpose": {
+            "enum": [
+              "current_turn_processing",
+              "long_term_personalization"
+            ]
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "memory_token_budget": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100000
+          }
+        },
+        "required": [
+          "task_ref",
+          "purpose",
+          "query",
+          "memory_token_budget"
+        ]
+      },
+      "ContextBundle": {
+        "$ref": "../schemas/context-bundle.schema.json"
+      },
+      "CorrectionReceipt": {
+        "$ref": "../schemas/correction-receipt.schema.json"
+      }
+    }
+  },
+  "x-design-status": "reference-not-production"
+}

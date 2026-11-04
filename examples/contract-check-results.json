@@ -1,0 +1,286 @@
+{
+  "passed": true,
+  "scope": "public_contract_examples_only",
+  "schema_meta_checks": 3,
+  "api_manifest_operations": 9,
+  "resolved_local_references": 79,
+  "shape_case_count": 27,
+  "runtime_boundaries_demonstrated": 4,
+  "product_tests_run": false,
+  "results": [
+    {
+      "id": "P01",
+      "schema": "proposal",
+      "expected_shape_valid": true,
+      "observed_shape_valid": true,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "P02",
+      "schema": "proposal",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "P03",
+      "schema": "proposal",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "P04",
+      "schema": "proposal",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "P05",
+      "schema": "proposal",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "P06",
+      "schema": "proposal",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "P07",
+      "schema": "proposal",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "P08",
+      "schema": "proposal",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "P09",
+      "schema": "proposal",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "P10",
+      "schema": "proposal",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "P11",
+      "schema": "proposal",
+      "expected_shape_valid": true,
+      "observed_shape_valid": true,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "P12",
+      "schema": "proposal",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "P13",
+      "schema": "proposal",
+      "expected_shape_valid": true,
+      "observed_shape_valid": true,
+      "passed": true,
+      "runtime_check_still_required": true,
+      "product_test": false
+    },
+    {
+      "id": "P14",
+      "schema": "proposal",
+      "expected_shape_valid": true,
+      "observed_shape_valid": true,
+      "passed": true,
+      "runtime_check_still_required": true,
+      "product_test": false
+    },
+    {
+      "id": "C01",
+      "schema": "context-bundle",
+      "expected_shape_valid": true,
+      "observed_shape_valid": true,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "C02",
+      "schema": "context-bundle",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "C03",
+      "schema": "context-bundle",
+      "expected_shape_valid": true,
+      "observed_shape_valid": true,
+      "passed": true,
+      "runtime_check_still_required": true,
+      "product_test": false
+    },
+    {
+      "id": "C04",
+      "schema": "context-bundle",
+      "expected_shape_valid": true,
+      "observed_shape_valid": true,
+      "passed": true,
+      "runtime_check_still_required": true,
+      "product_test": false
+    },
+    {
+      "id": "R01",
+      "schema": "correction-receipt",
+      "expected_shape_valid": true,
+      "observed_shape_valid": true,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "R02",
+      "schema": "correction-receipt",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "R03",
+      "schema": "correction-receipt",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "R04",
+      "schema": "correction-receipt",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "O01",
+      "schema": "OpenAPI-ControlRequest",
+      "expected_shape_valid": true,
+      "observed_shape_valid": true,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "O02",
+      "schema": "OpenAPI-ControlRequest",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "O03",
+      "schema": "OpenAPI-ControlRequest",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "O04",
+      "schema": "OpenAPI-ControlReceipt",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    },
+    {
+      "id": "O05",
+      "schema": "OpenAPI-ControlReceipt",
+      "expected_shape_valid": false,
+      "observed_shape_valid": false,
+      "passed": true,
+      "runtime_check_still_required": false,
+      "product_test": false
+    }
+  ],
+  "edition": "public-design-v0.2.0",
+  "artifact_hashes": [
+    {
+      "path": "api/openapi.json",
+      "sha256": "9ff36bb099cd9be6ffc76c29ef9745f8531465831a15ccdfc2ca4eb29c10e7ac"
+    },
+    {
+      "path": "api/operations.json",
+      "sha256": "739d08ba12d915837993f97bd48ed6d2e5c7d7de9ef7ab25883b3aea85cd2092"
+    },
+    {
+      "path": "requirements-dev.txt",
+      "sha256": "83de779b9a4bce5a6faee07aabf0d6c9cf8bbab024513a103d4635df501fb2fc"
+    },
+    {
+      "path": "schemas/context-bundle.schema.json",
+      "sha256": "9452ca46da48995374bd9a1330e0f4f308a58bf58eb1d3485696aaaccd59e7b2"
+    },
+    {
+      "path": "schemas/correction-receipt.schema.json",
+      "sha256": "9a5d29547beb06f23105fe0c427cc62c7f06da8d3f0860f1bc5d55ddcaa4dfb6"
+    },
+    {
+      "path": "schemas/proposal.schema.json",
+      "sha256": "ef9d4a0153b3f7542506fbe342227d03b38bf9f23fe476dec5d8fac3bb7d6b08"
+    },
+    {
+      "path": "tools/check_contract_examples.py",
+      "sha256": "6fd780a3d28ab40d51c860c7c43c2db62c6173334bd53e4aefcf60c9179c44ab"
+    }
+  ]
+}

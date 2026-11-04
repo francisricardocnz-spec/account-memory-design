@@ -1,0 +1,68 @@
+{
+  "synthetic": true,
+  "schema": "../schemas/context-bundle.schema.json",
+  "data": {
+    "bundle_id": "example-bundle-a",
+    "contract_version": "memory-context-public-v0.2",
+    "context_generation": "example-generation-a",
+    "purpose": "long_term_personalization",
+    "audience": "example-authorized-provider",
+    "authority_versions": {
+      "model_revision": "4",
+      "consent_version": "2",
+      "deletion_epoch": "0",
+      "objects": [
+        {
+          "entity_type": "claim",
+          "id": "example-claim-a",
+          "revision": "2"
+        }
+      ],
+      "schema_version": "memory-contract-public-v0.2",
+      "registry_version": "account-memory-fields-public-v0.1",
+      "policy_version": "example-policy-v0.2"
+    },
+    "source_bindings": [
+      {
+        "entity_type": "claim",
+        "id": "example-claim-a",
+        "revision": "2"
+      }
+    ],
+    "segments": [
+      {
+        "kind": "current_task",
+        "items": [],
+        "omitted_reasons": []
+      },
+      {
+        "kind": "applicable_background",
+        "items": [],
+        "omitted_reasons": []
+      },
+      {
+        "kind": "confirmed_changes",
+        "items": [],
+        "omitted_reasons": []
+      },
+      {
+        "kind": "relevant_recall",
+        "items": [],
+        "omitted_reasons": []
+      },
+      {
+        "kind": "critical_boundaries",
+        "items": [],
+        "omitted_reasons": []
+      }
+    ],
+    "token_accounting": {
+      "basis": "estimated_conservative_bound",
+      "total_input_tokens": 1000,
+      "reserved_output_tokens": 500,
+      "context_limit_tokens": 8192,
+      "error_budget_tokens": 100
+    },
+    "expires_at": "2026-01-01T01:00:00Z"
+  }
+}

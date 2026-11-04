@@ -1,0 +1,12 @@
+{
+  "synthetic": true,
+  "schema": "../schemas/correction-receipt.schema.json",
+  "data": {
+    "operation_id": "example-correction-a",
+    "state": "failed",
+    "stop_state": "blocked",
+    "independent_ledger_state": "durable",
+    "replacement_save_state": "failed",
+    "result_code": "STOPPED_REPLACEMENT_FAILED"
+  }
+}

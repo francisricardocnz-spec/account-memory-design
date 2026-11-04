@@ -1,56 +1,73 @@
 # Account Memory Design
 
-**可追溯、可纠正、可停止的账号级 AI 记忆系统设计。**
+![Evidence → Claim → Memory, with a governed control plane](assets/overview.svg)
 
-A design reference for evidence-grounded, user-controlled memory across conversations and agents.
+**一份从用户体验推到数据、并发、恢复与成本的账号级 AI 记忆系统设计。**
 
-版本：公开设计版 v0.1.0 · 语言：简体中文为主 · 状态：产品与架构设计参考
+A field guide to evidence-grounded, user-controlled memory across conversations and agents.
 
-这个项目讨论一个具体问题：个人 AI 在不同窗口和任务中接续用户时，怎样知道哪些信息可以使用、为什么相信、何时应更新，以及用户纠正或删除后怎样真正停止使用。
+公开设计版 **v0.2.0** · 简体中文为主 · 设计参考与虚构结构示例
 
-仓库包含产品需求、领域合同、工程流程、验收方法、容量公式和完全虚构的示例。它没有提供可部署服务、生产数据库迁移或经过真实用户验证的记忆引擎。文档检查通过只说明公开文件和示例的一致性；语义效果、吞吐、恢复和实际费用需要独立验证。
+用户说“工作讨论请直接一点，倾诉时先别急着给建议”，AI怎样记住其条件，而不是贴一个固定人格标签？用户随后纠正，另一个窗口已经在生成怎么办？删掉原聊天后哪些记忆还能保留？恢复旧备份又怎样避免复活？
 
-## 从这里开始
+本项目围绕这些问题展开。它提供产品需求、领域模型、工程合同、完整故事、接口/Schema示例、故障推演与可复算的容量费用模型。它**尚未提供可部署记忆服务**；数据库、多实例、真实模型、人工评审和用户收益需要分别验证。
 
-| 你想了解什么 | 文件 |
+## 建议先读
+
+- **想完整理解设计**：从[《从记住一句话到可治理的长期状态》](docs/deep-dive/01-memory-as-governed-state.md)开始，再读[12轮完整故事](docs/deep-dive/02-complete-story.md)。
+- **准备做产品或开发评审**：读[产品概览](docs/01-product.md)、[状态/API/存储](docs/deep-dive/03-api-and-storage.md)、[并发与恢复](docs/deep-dive/04-concurrency-and-recovery.md)。
+- **研究召回和Agent协作**：读[检索与上下文](docs/deep-dive/05-retrieval-and-context.md)、[A2A边界](docs/deep-dive/06-a2a-and-agent-boundaries.md)、[路线取舍](docs/deep-dive/08-patterns-and-tradeoffs.md)。
+- **判断是否值得上线**：读[阶段验收](docs/06-acceptance.md)、[评测方法](docs/deep-dive/07-evaluation.md)、[容量经济性](docs/deep-dive/09-capacity-economics.md)。
+
+## 这个设计的几个关键判断
+
+| 常见做法容易漏掉什么 | 本设计怎样处理 | 详细说明 |
+|---|---|---|
+| 一段摘要混合原话、AI解释与计划 | Evidence、Claim、Memory与Action分别表达 | [模型与状态](docs/03-contracts.md) |
+| 用户确认被当成真值或全面授权 | 确认、支持、性质、生命周期、用途分开 | [技术长文](docs/deep-dive/01-memory-as-governed-state.md) |
+| 纠正事务失败让已否定解释恢复 | 独立停止先成立，替代内容单独回执 | [故障推演](docs/deep-dive/04-concurrency-and-recovery.md) |
+| 索引没刷新就漏新更正 | 连续水位与有界权威增量合并 | [检索计划](docs/deep-dive/05-retrieval-and-context.md) |
+| 删除仅主表隐藏，旧备份仍复活 | 根/域屏障、分副本清理、独立登记、恢复先重放 | [并发与恢复](docs/deep-dive/04-concurrency-and-recovery.md) |
+| 内部Delta省字节就声称省模型费 | 装配、传输、计费输入与总调用分别计量 | [成本推导](docs/deep-dive/09-capacity-economics.md) |
+| 子Agent/另一入口默认全可信 | 父任务、目的、接收方、来源、期限和预算共同限制 | [A2A边界](docs/deep-dive/06-a2a-and-agent-boundaries.md) |
+
+## 内容地图
+
+| 路径 | 内容 |
 |---|---|
-| 产品要解决什么，用户如何保存、纠正和退出 | [产品需求](docs/01-product.md) |
-| 系统怎样分层，哪些记录是权威状态 | [架构](docs/02-architecture.md) |
-| 证据、断言、授权、版本和时间怎样表达 | [数据合同](docs/03-contracts.md) |
-| 首版可以写哪些字段，哪些保持关闭 | [字段目录](docs/04-field-registry.md)、[机器目录](examples/field-registry.json) |
-| 一次更新、读取、撤回和恢复怎么走 | [开发合同](docs/05-engineering.md) |
-| 开发顺序和完成条件 | [阶段与验收](docs/06-acceptance.md) |
-| 用户、存储、调用、延迟和成本怎样估算 | [容量与成本](docs/07-capacity.md) |
-| 哪些容易混淆的边界必须先讲清楚 | [设计问题与取舍](docs/08-design-decisions.md) |
-| 怎样从一句话走到合法记忆 | [虚构示例](examples/README.md)、[生命周期示例](examples/memory-lifecycle.json) |
-| 本公开版本怎样处理敏感信息与来源 | [公开范围](PUBLICATION.md)、[参考入口](docs/09-references.md) |
+| [docs/01-product.md](docs/01-product.md) 至 [09-references.md](docs/09-references.md) | 产品、架构、合同、33字段、工程、32组待实施验收、容量和取舍概览 |
+| [docs/deep-dive/](docs/deep-dive/01-memory-as-governed-state.md) | 10篇连续深度章节，从设计理由到完整工程/评测边界 |
+| [schemas/](schemas/proposal.schema.json) | 3份JSON Schema：模型提案、五段上下文、复合纠正回执 |
+| [api/openapi.json](api/openapi.json) / [操作清单](api/operations.json) | 9个接口的评审参考，含版本、错误与用途边界 |
+| [examples/](examples/README.md) | 全部虚构的生命周期、结构样例、字段目录和容量费用参数 |
+| [tools/](tools/check_publication.py) | 文档检查、结构样例检查、容量与归一化费用复算 |
 
-## 核心设计
+字段目录初始建议21开/12关；不为每个用户填满画像，也不默认开启量表、稳定特质、发展研究、私聊训练或心理画像A2A共享。模型只能提出有限候选，不能授予确认、Grant、核验或现实行动成功。
 
-1. Evidence记录凭什么知道；Claim记录当前提出的说法；Memory是按用途提供的检索和展示载体。
-2. 自述、直接观测、推断、测量和独立核验保持区别。内容确认、支持程度、生命周期和使用授权分别判断。
-3. 任务相关性不能代替权限、来源和当前性检查；检索、实际入模、回答引用和有效输出分别记录。
-4. 用户明确否定旧理解时先停用。替代内容保存失败不能恢复已经停止的旧解释。
-5. 停止新使用与清理物理副本分开；恢复先核独立停止登记，旧备份不能让已停内容复活。
-6. 千万注册用户按活跃度、调用率和数据分布规划，不为每个账号常驻一个模型任务。
-7. 同账号子Agent与跨账号A2A分别核权限，只交付任务所需的最小投影。
+## 可以在本地做什么
 
-## 本地检查
-
-仅依赖 Python 3 标准库：
+基础文档检查与算例只依赖Python标准库，建议Python3.10或更新版本：
 
 ```bash
-python3 tools/check_publication.py
+python3 -B tools/check_publication.py
+python3 -B tools/capacity_model.py examples/capacity-scenario.json
+python3 -B tools/cost_sensitivity.py
 ```
 
-检查相对链接、JSON、字段目录、示例标记、文件类型和常见凭据/本机路径形状。它不实现生产Reducer、不验证真实同意，也不证明公开内容绝无敏感信息。发布前仍应逐页审阅正文、文件名、示例、元数据和提交历史。
+可选结构检查使用独立虚拟环境：
 
-## 如何使用
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-dev.txt
+.venv/bin/python -B tools/check_contract_examples.py
+```
 
-先选一个需要跨任务接续的真实产品场景，定义用途与删除范围，再按阶段实现最小完整闭环。字段与阈值是设计起点；无需为每个用户填满人物档案。高级检索、图结构、叙事或多Agent只有在同预算对照中证明收益后再采用。
+检查3份Schema的meta结构、虚构正反例、9接口清单与本地引用。**结构合法不等于来源真实或有权使用**：等长伪原话、旧许可版本、总预算不足和支持不足都需要运行时继续检查。具体[检查范围与已知边界](docs/deep-dive/10-machine-contracts.md)及[结果](examples/contract-check-results.json)单独保留。
 
-讨论或改进建议可通过本仓库 Issues 提出。请使用虚构示例，不提交真实聊天、身份信息、密钥、内部日志或私有附件。贡献范围见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+费用工具用归一化虚构单位；不是当前报价、真实账单或压测。多字段、更长摘要或更多Agent不会自动带来更高收益，最终以同任务、同来源和预算的对照判断。
 
-## 授权状态
+## 分享与贡献边界
 
-本次公开分享未选择开放许可。公开可读不等于自动授予任意复制、再分发或商业使用许可；后续可由权利人明确设置。参考项目、规范和第三方材料遵循各自的许可，本仓库不重新授权它们。
+本仓库重新整理通用设计，未上传原业务源码、私人对话、内部路径/运行/审批记录或第三方完整工程包，历史从公开版新建提交开始。详见[PUBLICATION.md](PUBLICATION.md)。外部来源入口及采用边界见[参考文档](docs/09-references.md)。
+
+欢迎用Issue讨论矛盾、遗漏、成本和可复现的合同问题，请使用虚构示例。[贡献说明](CONTRIBUTING.md)列出范围。本次公开分享仍未选择开放许可；公开可读不等于替第三方材料重新授权。

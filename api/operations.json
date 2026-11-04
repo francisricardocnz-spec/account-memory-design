@@ -1,0 +1,130 @@
+{
+  "status": "design_only",
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/v1/memory/management/entries",
+      "operation_id": "listManagedEntries",
+      "required_response_codes": [
+        "200",
+        "403",
+        "404",
+        "409",
+        "422",
+        "503"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v1/memory/context",
+      "operation_id": "prepareTaskContext",
+      "required_response_codes": [
+        "200",
+        "403",
+        "404",
+        "409",
+        "422",
+        "503",
+        "428"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/memory/proposals/{id}",
+      "operation_id": "getProposal",
+      "required_response_codes": [
+        "200",
+        "403",
+        "404",
+        "409",
+        "422",
+        "503"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v1/memory/proposals/{id}/confirm",
+      "operation_id": "confirmProposal",
+      "required_response_codes": [
+        "200",
+        "403",
+        "404",
+        "409",
+        "422",
+        "503",
+        "428",
+        "202"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v1/memory/corrections/preview",
+      "operation_id": "previewCorrection",
+      "required_response_codes": [
+        "200",
+        "403",
+        "404",
+        "409",
+        "422",
+        "503",
+        "428"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v1/memory/corrections",
+      "operation_id": "commitCorrection",
+      "required_response_codes": [
+        "200",
+        "403",
+        "404",
+        "409",
+        "422",
+        "503",
+        "428",
+        "202"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v1/memory/controls/stops",
+      "operation_id": "stopMemoryUse",
+      "required_response_codes": [
+        "200",
+        "403",
+        "404",
+        "409",
+        "422",
+        "503",
+        "202"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v1/memory/deletions",
+      "operation_id": "deleteMemoryContent",
+      "required_response_codes": [
+        "200",
+        "403",
+        "404",
+        "409",
+        "422",
+        "503",
+        "202"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/memory/operations/{id}",
+      "operation_id": "getOriginalOperation",
+      "required_response_codes": [
+        "200",
+        "403",
+        "404",
+        "409",
+        "422",
+        "503"
+      ]
+    }
+  ]
+}

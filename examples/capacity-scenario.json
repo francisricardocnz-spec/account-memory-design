@@ -1,0 +1,17 @@
+{
+  "synthetic": true,
+  "registered_accounts": 10000000,
+  "dau": 100000,
+  "turns_per_dau": 8,
+  "memory_requests_per_turn": 1.25,
+  "peak_to_average": 10,
+  "main_model_calls_per_turn": 1.1,
+  "mean_model_occupancy_seconds": 6,
+  "memory_owners": 500000,
+  "mean_items_per_owner": 40,
+  "effective_bytes_per_item": 5000,
+  "history_multiplier": 1.5,
+  "index_overhead": 0.7,
+  "online_copies": 3,
+  "backup_equivalent_copies": 1
+}

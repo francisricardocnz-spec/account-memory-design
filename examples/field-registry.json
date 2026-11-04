@@ -1,0 +1,583 @@
+{
+  "registry_version": "account-memory-fields-public-v0.1",
+  "status": "design_reference_not_runtime_configuration",
+  "all_records_synthetic": true,
+  "default_denied_purposes": [
+    "matching",
+    "a2a_sharing",
+    "model_training",
+    "product_research",
+    "evaluation_use",
+    "external_action"
+  ],
+  "fields": [
+    {
+      "field_id": "self.reported_experience",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人、事件/时间引用",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "event.description",
+      "value_kind": "reference",
+      "allowed_epistemic_status": [
+        "reported",
+        "observed"
+      ],
+      "subject_constraint": "Event；observed需受信观察",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "event.behavior",
+      "value_kind": "reference",
+      "allowed_epistemic_status": [
+        "reported",
+        "observed"
+      ],
+      "subject_constraint": "Behavior；不含动机事实化",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "state.emotion",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人状态",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "state.energy",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人状态；数字原话不当量表",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "state.stress",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人状态",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "state.attention",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人状态",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "state.cognitive_load",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人状态",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "state.position",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人当前立场；限定问题",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "state.intention",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人当前意图；不是已行动",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "state.physical_discomfort",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人身体不适自述；非诊断",
+      "enabled_initially": false,
+      "sensitivity_floor": "sensitive_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "state.life_context",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人生活情境",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "state.resources",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人本任务可用资源；敏感内容另门控",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "preference.communication",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人沟通偏好及适用情境",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "boundary.explicit",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人明确边界",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "goal.current",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人目标/明确截止",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "antigoal.current",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人不希望发生的目标",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "identity.role",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人角色自述",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "narrative.segment",
+      "value_kind": "reference",
+      "allowed_epistemic_status": [
+        "reported",
+        "inferred"
+      ],
+      "subject_constraint": "NarrativeSegment/有来源Claim",
+      "enabled_initially": false,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "narrative.future_self",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人对未来自我的表达；非预测",
+      "enabled_initially": false,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "narrative.role_conflict",
+      "value_kind": "reference",
+      "allowed_epistemic_status": [
+        "reported",
+        "inferred"
+      ],
+      "subject_constraint": "角色Claim集合及情境；不贴诊断",
+      "enabled_initially": false,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "relationship.stage",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "Relationship+本人视角",
+      "enabled_initially": false,
+      "sensitivity_floor": "third_party_restricted",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "relationship.expectation",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "Relationship/关系类型+本人视角",
+      "enabled_initially": true,
+      "sensitivity_floor": "third_party_restricted",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "relationship.agreement",
+      "value_kind": "reference",
+      "allowed_epistemic_status": [
+        "reported",
+        "observed"
+      ],
+      "subject_constraint": "约定对象+各方确认receipt；仅本人报告时标本人视角",
+      "enabled_initially": false,
+      "sensitivity_floor": "third_party_restricted",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "hypothesis.contextual_pattern",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "inferred"
+      ],
+      "subject_constraint": "明确局部情境/关系，反证引用",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "trait.stable_pattern",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "inferred"
+      ],
+      "subject_constraint": "不自动跨关系推广",
+      "enabled_initially": false,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "capability.self_evaluation",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人能力自述；不造量表分",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "assessment.result",
+      "value_kind": "measurement",
+      "allowed_epistemic_status": [
+        "measured"
+      ],
+      "subject_constraint": "获准Assessment及metric/计分版本",
+      "enabled_initially": false,
+      "sensitivity_floor": "sensitive_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "action.execution",
+      "value_kind": "reference",
+      "allowed_epistemic_status": [
+        "reported",
+        "observed"
+      ],
+      "subject_constraint": "Action及真实completion_object",
+      "enabled_initially": false,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "outcome.observation",
+      "value_kind": "reference",
+      "allowed_epistemic_status": [
+        "reported",
+        "observed"
+      ],
+      "subject_constraint": "Outcome及观察窗口/来源",
+      "enabled_initially": false,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "value.user_defined",
+      "value_kind": "text",
+      "allowed_epistemic_status": [
+        "reported"
+      ],
+      "subject_constraint": "本人明确价值表达；不是隐含动机",
+      "enabled_initially": true,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "development.framework_view",
+      "value_kind": "reference",
+      "allowed_epistemic_status": [
+        "inferred"
+      ],
+      "subject_constraint": "DevelopmentEpisode与框架权利",
+      "enabled_initially": false,
+      "sensitivity_floor": "sensitive_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    },
+    {
+      "field_id": "causal.hypothesis",
+      "value_kind": "reference",
+      "allowed_epistemic_status": [
+        "inferred"
+      ],
+      "subject_constraint": "CausalHypothesis，初始状态有限",
+      "enabled_initially": false,
+      "sensitivity_floor": "ordinary_personal",
+      "activation_requires": [
+        "field_policy",
+        "current_source",
+        "applicable_grants",
+        "required_confirmation",
+        "expected_versions"
+      ]
+    }
+  ]
+}

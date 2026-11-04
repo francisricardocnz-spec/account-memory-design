@@ -1,0 +1,111 @@
+{
+  "edition": "public-design-v0.1.0",
+  "date": "2026-11-04",
+  "status": "design_reference",
+  "runtime_implementation_included": false,
+  "product_tests_run": false,
+  "examples": "synthetic_only",
+  "license": "not_selected",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 84,
+      "sha256": "ed463d2bf1b1e45ae45ec63d547903a25c5e69d44687b490a8d3cc96e5e84074"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 410,
+      "sha256": "da070e8d406297cb91e7b47fd209708ef3ecba4b53992b9241be02d8641a69d0"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 755,
+      "sha256": "5724ba9baaa4d9914d796e2d898686c204e400c10bb91b9ac9e6480d0870244d"
+    },
+    {
+      "path": "PUBLICATION.md",
+      "bytes": 1972,
+      "sha256": "be0a0c7c4df641f37c1c169ecddbe39165299d7e206582775cdfa6763819fe40"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4050,
+      "sha256": "e7788a6f6eba719fe0c6f5bd7d8e600f0e02d6a8df3e7f3aaee6781573c46efa"
+    },
+    {
+      "path": "docs/01-product.md",
+      "bytes": 3462,
+      "sha256": "cf1851327d2989f0e5bbb27210fbf7682bc51de28fc75c6a6055dfa8fe3f09b7"
+    },
+    {
+      "path": "docs/02-architecture.md",
+      "bytes": 3283,
+      "sha256": "fac2c81961b334a4b2c83767b591263c2c852a7c9bd67b1e8a19370f30f1d72b"
+    },
+    {
+      "path": "docs/03-contracts.md",
+      "bytes": 5950,
+      "sha256": "ef4c990dd1260cbc9a77c508799c0f81b14b19b4494152c63cb14c7b37ca5725"
+    },
+    {
+      "path": "docs/04-field-registry.md",
+      "bytes": 4443,
+      "sha256": "235c055e3909f4065a6d2c48f31c31971be442b49719673cff338a446bec6e79"
+    },
+    {
+      "path": "docs/05-engineering.md",
+      "bytes": 6727,
+      "sha256": "c08161abf298afd37a12be1f96691a3862de84868f8ab0036c2acebd3844fdfa"
+    },
+    {
+      "path": "docs/06-acceptance.md",
+      "bytes": 5156,
+      "sha256": "54eab8de5c2f61443955ab8cc802d8e2dbe464573c6dc8219739de3254a4abb3"
+    },
+    {
+      "path": "docs/07-capacity.md",
+      "bytes": 3725,
+      "sha256": "1e26875ab2c6a8bda84f18aa6cdd845a6a12a47479c0b9525592d9e040f10446"
+    },
+    {
+      "path": "docs/08-design-decisions.md",
+      "bytes": 2501,
+      "sha256": "08768af3b646857f8c55ababcdcc61fffe31c364249fdf932cdef6faa42b47e1"
+    },
+    {
+      "path": "docs/09-references.md",
+      "bytes": 2115,
+      "sha256": "2b87b6b07a58ffff8c38300b140e9ee879d6d49b852164e2978514ea163f308b"
+    },
+    {
+      "path": "examples/README.md",
+      "bytes": 1255,
+      "sha256": "79190068bd4d12c5a408ca71806b2ddff2db7183389fe4a119725e4d33df0f62"
+    },
+    {
+      "path": "examples/capacity-scenario.json",
+      "bytes": 434,
+      "sha256": "ff270113d4d6f10290a323d76acbf5c2f112d932b7b61936b4cabf6a56efc987"
+    },
+    {
+      "path": "examples/field-registry.json",
+      "bytes": 16025,
+      "sha256": "4d9f5b5cf57dac2744f8fb8dbbf923499e0a8907f5bf82dd96b1670d711c8c88"
+    },
+    {
+      "path": "examples/memory-lifecycle.json",
+      "bytes": 2037,
+      "sha256": "250dc568a0f217530db1dc7a612c54543ac3949308a2323d5d77ba241957a28d"
+    },
+    {
+      "path": "tools/capacity_model.py",
+      "bytes": 2070,
+      "sha256": "349cde2a0a4cbfe855ca5f079188ddc6c1875153140fb81c3ab24081fff97020"
+    },
+    {
+      "path": "tools/check_publication.py",
+      "bytes": 4320,
+      "sha256": "6455f1bfc4d4e824c029d6ba5a79ac989fa3f87ddc23fe26d1b0447a5b882d30"
+    }
+  ]
+}

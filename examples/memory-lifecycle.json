@@ -1,0 +1,72 @@
+{
+  "synthetic": true,
+  "example_version": "public-v0.1",
+  "as_of": "2026-01-01T00:00:00Z",
+  "not_a_production_snapshot": true,
+  "source": {
+    "id": "example-source-a",
+    "owner_account_id": "example-account-a",
+    "text": "回复请简短一些。",
+    "source_revision": "1",
+    "locator": {
+      "coordinate_unit": "unicode_code_point",
+      "start": 0,
+      "end": 8
+    }
+  },
+  "content_confirmed_grant_missing": {
+    "claim_ref": "example-claim-a",
+    "field_id": "preference.communication",
+    "epistemic_status": "reported",
+    "confirmation": "confirmed",
+    "lifecycle": "proposed",
+    "save_state": "awaiting_grant",
+    "pending_requirements": [
+      "long_term_grant"
+    ],
+    "blocked_reasons": []
+  },
+  "explicit_save_receipt": {
+    "operation_id": "example-save-a",
+    "save_state": "committed",
+    "claim_revision": "2",
+    "confirmation_record_ref": "example-confirmation-a",
+    "granted_purposes": [
+      "long_term_personalization"
+    ],
+    "not_granted_purposes": [
+      "matching",
+      "a2a_sharing",
+      "model_training"
+    ],
+    "usage_scope": "account",
+    "source_retention_mode": "deadline",
+    "retention_until": "2026-01-08T00:00:00Z",
+    "model_revision": "4",
+    "consent_version": "2",
+    "deletion_epoch": "0"
+  },
+  "reject_ai_interpretation_and_replace": {
+    "operation_id": "example-correction-a",
+    "stop_operation_id": "example-stop-a",
+    "replacement_operation_id": "example-replacement-a",
+    "stop_state": "blocked",
+    "independent_ledger_state": "durable",
+    "replacement_save_state": "failed",
+    "result_code": "STOPPED_REPLACEMENT_FAILED"
+  },
+  "delete_receipt": {
+    "operation_id": "example-delete-a",
+    "new_use_state": "blocked",
+    "independent_ledger_state": "durable",
+    "deletion_epoch": "1",
+    "phase": "purging",
+    "copies": {
+      "primary": "verified_deleted",
+      "search_index": "pending",
+      "cache": "pending"
+    },
+    "external_copy_state": "unknown",
+    "all_physical_copies_deleted": false
+  }
+}
